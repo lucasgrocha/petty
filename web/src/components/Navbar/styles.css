@@ -1,0 +1,41 @@
+#navar {
+  width: 100vw;
+  background-color: rgb(51, 192, 51);
+  padding: 1.5rem;
+}
+
+#navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#navbar-site-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#navbar-logo {
+  width: 3.5rem;
+}
+
+#title {
+  font: 400 2.5rem Archivo;
+  color: whitesmoke;
+  margin-left: 1rem;
+}
+
+#navar-menu ul {
+  list-style: none;
+}
+
+#navar-menu ul li {
+  display: inline;
+  font: 400 1.9rem Poppins;
+  color: whitesmoke;
+}
+
+#navar-menu ul li + li {
+  margin-left: 2rem;
+}
