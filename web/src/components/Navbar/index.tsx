@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
 import { Pets, Spa, GpsFixed } from '@styled-icons/material';
 
 import './styles.css';
@@ -7,19 +7,50 @@ import HamburgerMenu from '../HamburgerMenu';
 import Backdrop from '../Ui/Backdrop';
 
 interface MenuItem {
-  icon: string;
+  icon: ReactNode;
   label: string;
   url: string;
 }
 
 const Navbar: React.FC = () => {
-  const [hamburgerMenuVisible, setHamburgerMenuVisible] = useState<boolean>(
-    true
-  );
+  const [hamburgerMenuVisible, setHamburgerMenuVisible] = useState<boolean>();
 
   function handleHamburgerClicked() {
     setHamburgerMenuVisible(!hamburgerMenuVisible);
   }
+
+  const menuItems: MenuItem[] = [
+    {
+      icon: <Pets className="list-icon" />,
+      label: 'Adotar',
+      url: '/',
+    },
+    {
+      icon: <Spa className="list-icon" />,
+      label: 'Procurar cuidados',
+      url: '/',
+    },
+    {
+      icon: <GpsFixed className="list-icon" />,
+      label: 'Anunciar desaparecimento',
+      url: '/',
+    },
+  ];
+
+  const menuUlList = (
+    <ul>
+      {menuItems.map((item) => (
+        <li key={item.label}>
+          <a className="link" href={item.url}>
+            <div className="list-item">
+              {item.icon}
+              {item.label}
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
 
   return (
     <>
@@ -31,9 +62,10 @@ const Navbar: React.FC = () => {
           </div>
           <div id="navar-menu">
             <HamburgerMenu
-              clicked={hamburgerMenuVisible}
+              clicked={!!hamburgerMenuVisible}
               click={handleHamburgerClicked}
             />
+            <div id="navbar-menu-items">{menuUlList}</div>
           </div>
         </div>
       </nav>
@@ -52,32 +84,8 @@ const Navbar: React.FC = () => {
           <img src={logo} alt="Petty logo" className="navbar-logo" />
           <h2>Items available</h2>
         </header>
-        <ul>
-          <li>
-            <a className="link" href="/">
-              <div className="list-item">
-                <Pets className="list-icon" />
-                Adotar
-              </div>
-            </a>
-          </li>
-          <li>
-            <a className="link" href="/">
-              <div className="list-item">
-                <Spa className="list-icon" />
-                Procurar cuidados
-              </div>
-            </a>
-          </li>
-          <li>
-            <a className="link" href="/">
-              <div className="list-item">
-                <GpsFixed className="list-icon" />
-                Anunciar desaparecimento
-              </div>
-            </a>
-          </li>
-        </ul>
+
+        {menuUlList}
       </div>
 
       <Backdrop
