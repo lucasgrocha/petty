@@ -1,26 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import logo from '../../assets/images/icons/logo.svg';
 
 import './styles.css';
+import HamburgerMenu from '../HamburgerMenu';
+import Backdrop from '../Ui/Backdrop';
 
 const Navbar: React.FC = () => {
+  const [hamburgerMenuVisible, setHamburgerMenuVisible] = useState(true);
+
+  function handleHamburgerClicked() {
+    setHamburgerMenuVisible(!hamburgerMenuVisible);
+  }
+
   return (
-    <nav id="navar">
-      <div id="navbar-content">
-        <div id="navbar-site-info">
-          <img src={logo} alt="Petty logo" id="navbar-logo" />
-          <span id="title">Petty</span>
+    <>
+      <nav id="navbar">
+        <div id="navbar-content">
+          <div id="navbar-site-info">
+            <img src={logo} alt="Petty logo" id="navbar-logo" />
+            <span id="title">Petty</span>
+          </div>
+          <div id="navar-menu">
+            <HamburgerMenu clicked={handleHamburgerClicked} />
+          </div>
         </div>
-        <div id="navar-menu">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      </nav>
+
+      <div
+        id="aside-menu-items"
+        className={hamburgerMenuVisible ? 'on' : 'off'}
+      ></div>
+
+      <Backdrop
+        clicked={handleHamburgerClicked}
+        visible={hamburgerMenuVisible}
+      />
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-#navar {
+#navbar {
   width: 100vw;
   background-color: rgb(51, 192, 51);
   padding: 1.5rem;
@@ -38,4 +38,41 @@
 
 #navar-menu ul li + li {
   margin-left: 2rem;
+}
+
+#aside-menu-items {
+  height: 100vh;
+  width: 75vw;
+  position: fixed;
+  background-color: rgb(236, 236, 236);
+  top: 0;
+  left: 0;
+  z-index: 2;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.on {
+  animation: slideIn 0.3s both;
+}
+
+.off {
+  animation: slideOut 0.3s both;
+}
+
+@keyframes slideIn {
+  from {
+    left: -900px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    left: 0;
+  }
+  to {
+    left: -900px;
+  }
 }

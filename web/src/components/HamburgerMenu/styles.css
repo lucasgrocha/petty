@@ -1,0 +1,30 @@
+#hamburger {
+  width: 5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger-line {
+  width: 4rem;
+  padding: 0.2rem;
+  background-color: whitesmoke;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+#hamburger:hover .hamburger-line {
+  background-color: rgb(221, 221, 221);
+}
+
+.hamburger-line + .hamburger-line {
+  margin-top: 0.8rem;
+}
+
+@media screen and (min-width: 700px) {
+  #hamburger {
+    display: none;
+  }
+}
