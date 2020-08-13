@@ -1,3 +1,7 @@
+:root {
+  --total-hide: -100%;
+}
+
 #navbar {
   width: 100vw;
   background-color: rgb(51, 192, 51);
@@ -46,7 +50,7 @@
   position: fixed;
   background-color: rgb(236, 236, 236);
   top: 0;
-  left: 0;
+  left: var(--total-hide);
   z-index: 2;
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
 }
@@ -61,7 +65,7 @@
 
 @keyframes slideIn {
   from {
-    left: -900px;
+    left: var(--total-hide);
   }
   to {
     left: 0;
@@ -73,6 +77,6 @@
     left: 0;
   }
   to {
-    left: -900px;
+    left: var(--total-hide);
   }
 }

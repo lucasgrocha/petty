@@ -4,7 +4,7 @@ import './styles.css';
 
 interface Props {
   clicked: () => void;
-  visible: boolean;
+  visible?: boolean;
 }
 
 const Backdrop: React.FC<Props> = (props) => {
@@ -13,7 +13,7 @@ const Backdrop: React.FC<Props> = (props) => {
       id="backdrop"
       onClick={props.clicked}
       className={props.visible ? 'show' : 'hide'}
-    ></div>
+    />
   );
 };
 

@@ -7,7 +7,7 @@ import HamburgerMenu from '../HamburgerMenu';
 import Backdrop from '../Ui/Backdrop';
 
 const Navbar: React.FC = () => {
-  const [hamburgerMenuVisible, setHamburgerMenuVisible] = useState(true);
+  const [hamburgerMenuVisible, setHamburgerMenuVisible] = useState<boolean>();
 
   function handleHamburgerClicked() {
     setHamburgerMenuVisible(!hamburgerMenuVisible);
@@ -29,7 +29,13 @@ const Navbar: React.FC = () => {
 
       <div
         id="aside-menu-items"
-        className={hamburgerMenuVisible ? 'on' : 'off'}
+        className={
+          hamburgerMenuVisible
+            ? 'on'
+            : hamburgerMenuVisible !== undefined
+            ? 'off'
+            : ''
+        }
       ></div>
 
       <Backdrop
