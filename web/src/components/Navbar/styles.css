@@ -142,9 +142,3 @@
     display: none;
   }
 }
-
-@media screen and (min-width: 700px) {
-  #aside-menu-items {
-    display: none;
-  }
-}
