@@ -52,9 +52,9 @@
 #aside-menu-items header {
   display: flex;
   align-items: center;
-  margin-left: 0.5rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin: 1rem 0.5rem 2rem 0.5rem;
+  padding-bottom: 1.8rem;
+  border-bottom: 1px solid rgb(146, 146, 146);
 }
 
 #aside-menu-items header img {
@@ -76,6 +76,11 @@
   display: flex;
   align-items: center;
   margin-left: 1rem;
+  transition: color 0.2s;
+}
+
+.list-item:hover {
+  color: rgb(51, 192, 51);
 }
 
 .on {
