@@ -20,7 +20,7 @@
   justify-content: center;
 }
 
-#navbar-logo {
+.navbar-logo {
   width: 3.5rem;
 }
 
@@ -32,12 +32,6 @@
 
 #navar-menu ul {
   list-style: none;
-}
-
-#navar-menu ul li {
-  display: inline;
-  font: 400 1.9rem Poppins;
-  color: whitesmoke;
 }
 
 #navar-menu ul li + li {
@@ -53,6 +47,35 @@
   left: var(--total-hide);
   z-index: 2;
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+#aside-menu-items header {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+#aside-menu-items header img {
+  margin-right: 0.5rem;
+}
+
+.link {
+  text-decoration: none;
+  color: rgb(9, 37, 9);
+  font: 400 1.6rem Poppins;
+}
+
+.list-icon {
+  width: 1.6rem;
+  margin-right: 0.5rem;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
 }
 
 .on {
