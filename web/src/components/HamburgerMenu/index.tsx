@@ -3,16 +3,21 @@ import React from 'react';
 import './styles.css';
 
 interface Props {
-  clicked: () => void;
+  click: () => void;
+  clicked: boolean;
 }
 
 const HamburgerMenu: React.FC<Props> = (props) => {
   return (
     <>
-      <div id="hamburger" onClick={props.clicked}>
-        <div className="hamburger-line"></div>
-        <div className="hamburger-line"></div>
-        <div className="hamburger-line"></div>
+      <div
+        id="hamburger"
+        onClick={props.click}
+        className={props.clicked ? 'open' : ''}
+      >
+        <div id="line-1" className="hamburger-line"></div>
+        <div id="line-2" className="hamburger-line"></div>
+        <div id="line-3" className="hamburger-line"></div>
       </div>
     </>
   );

@@ -8,7 +8,7 @@
 }
 
 .hamburger-line {
-  width: 4rem;
+  width: 3rem;
   padding: 0.2rem;
   background-color: whitesmoke;
   border-radius: 0.5rem;
@@ -20,7 +20,24 @@
 }
 
 .hamburger-line + .hamburger-line {
-  margin-top: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+#line-1,
+#line-3 {
+  transition: 0.4s;
+}
+
+.open #line-1 {
+  transform: rotate(140deg) translate(2px, -0.1rem);
+}
+
+.open #line-3 {
+  transform: rotate(40deg) translate(-0.5rem, -0.4rem);
+}
+
+.open #line-2 {
+  display: none;
 }
 
 @media screen and (min-width: 700px) {

@@ -30,7 +30,10 @@ const Navbar: React.FC = () => {
             <span id="title">Petty</span>
           </div>
           <div id="navar-menu">
-            <HamburgerMenu clicked={handleHamburgerClicked} />
+            <HamburgerMenu
+              clicked={hamburgerMenuVisible}
+              click={handleHamburgerClicked}
+            />
           </div>
         </div>
       </nav>
