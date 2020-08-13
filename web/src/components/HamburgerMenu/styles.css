@@ -29,11 +29,11 @@
 }
 
 .open #line-1 {
-  transform: rotate(140deg) translate(2px, -0.1rem);
+  transform: rotate(40deg) translate(0.3rem, 0rem);
 }
 
 .open #line-3 {
-  transform: rotate(40deg) translate(-0.5rem, -0.4rem);
+  transform: rotate(-40deg) translate(0.5rem, -0.5rem);
 }
 
 .open #line-2 {
