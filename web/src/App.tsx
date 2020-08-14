@@ -1,10 +1,10 @@
 import React from 'react';
 
 import './assets/styles/global.css';
-import Header from './components/Header';
+import AppRoutes from './routes';
 
 function App() {
-  return <Header />;
+  return <AppRoutes />;
 }
 
 export default App;

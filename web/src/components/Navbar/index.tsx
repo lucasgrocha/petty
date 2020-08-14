@@ -6,6 +6,7 @@ import logo from '../../assets/images/icons/logo.svg';
 import HamburgerMenu from '../HamburgerMenu';
 import Backdrop from '../Ui/Backdrop';
 import AsideMenuItems from '../AsideMenuItems';
+import { Link } from 'react-router-dom';
 
 interface MenuItem {
   icon: ReactNode;
@@ -14,9 +15,7 @@ interface MenuItem {
 }
 
 const Navbar: React.FC = () => {
-  const [hamburgerMenuVisible, setHamburgerMenuVisible] = useState<boolean>(
-    true
-  );
+  const [hamburgerMenuVisible, setHamburgerMenuVisible] = useState<boolean>();
 
   function handleHamburgerClicked() {
     setHamburgerMenuVisible(!hamburgerMenuVisible);
@@ -26,7 +25,7 @@ const Navbar: React.FC = () => {
     {
       icon: <Pets className="list-icon" />,
       label: 'Adotar',
-      url: '/',
+      url: '/adopt',
     },
     {
       icon: <Spa className="list-icon" />,
@@ -44,12 +43,18 @@ const Navbar: React.FC = () => {
     <ul>
       {menuItems.map((item) => (
         <li key={item.label}>
-          <a className="link" href={item.url}>
+          <Link
+            className="link"
+            to={item.url}
+            onClick={() =>
+              hamburgerMenuVisible && setHamburgerMenuVisible(false)
+            }
+          >
             <div className="list-item">
               {item.icon}
               {item.label}
             </div>
-          </a>
+          </Link>
         </li>
       ))}
     </ul>

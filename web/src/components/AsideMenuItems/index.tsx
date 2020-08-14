@@ -3,7 +3,7 @@ import React from 'react';
 import './styles.css';
 
 interface Props {
-  show: boolean;
+  show?: boolean;
   logoURL: string;
   ulList: JSX.Element;
 }
