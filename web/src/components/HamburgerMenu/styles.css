@@ -28,15 +28,15 @@
   transition: 0.1s linear;
 }
 
-.open #line-1 {
+.on #line-1 {
   transform: rotate(40deg) translate(0.3rem, 0rem);
 }
 
-.open #line-3 {
+.on #line-3 {
   transform: rotate(-40deg) translate(0.5rem, -0.5rem);
 }
 
-.open #line-2 {
+.on #line-2 {
   display: none;
 }
 

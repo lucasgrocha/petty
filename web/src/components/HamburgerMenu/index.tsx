@@ -13,7 +13,7 @@ const HamburgerMenu: React.FC<Props> = (props) => {
       <div
         id="hamburger"
         onClick={props.click}
-        className={props.clicked ? 'open' : ''}
+        className={props.clicked ? 'on' : ''}
       >
         <div id="line-1" className="hamburger-line"></div>
         <div id="line-2" className="hamburger-line"></div>

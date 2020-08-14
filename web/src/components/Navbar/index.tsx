@@ -5,6 +5,7 @@ import './styles.css';
 import logo from '../../assets/images/icons/logo.svg';
 import HamburgerMenu from '../HamburgerMenu';
 import Backdrop from '../Ui/Backdrop';
+import AsideMenuItems from '../AsideMenuItems';
 
 interface MenuItem {
   icon: ReactNode;
@@ -13,7 +14,9 @@ interface MenuItem {
 }
 
 const Navbar: React.FC = () => {
-  const [hamburgerMenuVisible, setHamburgerMenuVisible] = useState<boolean>();
+  const [hamburgerMenuVisible, setHamburgerMenuVisible] = useState<boolean>(
+    true
+  );
 
   function handleHamburgerClicked() {
     setHamburgerMenuVisible(!hamburgerMenuVisible);
@@ -70,23 +73,11 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      <div
-        id="aside-menu-items"
-        className={
-          hamburgerMenuVisible
-            ? 'on'
-            : hamburgerMenuVisible !== undefined
-            ? 'off'
-            : ''
-        }
-      >
-        <header>
-          <img src={logo} alt="Petty logo" className="navbar-logo" />
-          <h2>Items available</h2>
-        </header>
-
-        {menuUlList}
-      </div>
+      <AsideMenuItems
+        logoURL={logo}
+        ulList={menuUlList}
+        show={hamburgerMenuVisible}
+      />
 
       <Backdrop
         clicked={handleHamburgerClicked}

@@ -1,7 +1,3 @@
-:root {
-  --total-hide: -100%;
-}
-
 #navbar {
   width: 100vw;
   background-color: rgb(51, 192, 51);
@@ -36,29 +32,6 @@
 
 #navbar-menu ul li + li {
   margin-left: 2rem;
-}
-
-#aside-menu-items {
-  height: 100vh;
-  width: 75vw;
-  position: fixed;
-  background-color: rgb(236, 236, 236);
-  top: 0;
-  left: var(--total-hide);
-  z-index: 2;
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
-}
-
-#aside-menu-items header {
-  display: flex;
-  align-items: center;
-  margin: 1rem 0.5rem 2rem 0.5rem;
-  padding-bottom: 1.8rem;
-  border-bottom: 1px solid rgb(146, 146, 146);
-}
-
-#aside-menu-items header img {
-  margin-right: 0.5rem;
 }
 
 #navbar-menu-items ul {
@@ -110,32 +83,6 @@
 
 .list-item:hover {
   color: rgb(51, 192, 51);
-}
-
-.on {
-  animation: slideIn 0.3s both;
-}
-
-.off {
-  animation: slideOut 0.3s both;
-}
-
-@keyframes slideIn {
-  from {
-    left: var(--total-hide);
-  }
-  to {
-    left: 0;
-  }
-}
-
-@keyframes slideOut {
-  from {
-    left: 0;
-  }
-  to {
-    left: var(--total-hide);
-  }
 }
 
 @media screen and (max-width: 700px) {
