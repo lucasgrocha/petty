@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
             <img src={logo} alt="Petty logo" className="navbar-logo" />
             <span id="title">Petty</span>
           </div>
-          <div id="navar-menu">
+          <div id="navbar-menu">
             <HamburgerMenu
               clicked={!!hamburgerMenuVisible}
               click={handleHamburgerClicked}

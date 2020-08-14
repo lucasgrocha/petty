@@ -30,11 +30,11 @@
   margin-left: 1rem;
 }
 
-#navar-menu ul {
+#navbar-menu ul {
   list-style: none;
 }
 
-#navar-menu ul li + li {
+#navbar-menu ul li + li {
   margin-left: 2rem;
 }
 
@@ -71,13 +71,14 @@
   color: white;
 }
 
-#navbar-menu-items ul li {
+#navbar-menu-items ul li a {
+  display: inline-block;
   padding: 1.2rem 0.5rem;
   transition: background-color 0.3s;
   border-radius: 0.5rem;
 }
 
-#navbar-menu-items ul li:hover {
+#navbar-menu-items ul li a:hover {
   background-color: rgba(114, 114, 114, 0.185);
 }
 
