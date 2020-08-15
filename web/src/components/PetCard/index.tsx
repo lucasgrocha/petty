@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { LocationOn as LocationPoint } from '@styled-icons/material';
+// import { LocationOn as LocationPoint } from '@styled-icons/material';
+import locationPoint from '../../assets/images/icons/gps.svg';
 
 import './styles.css';
 
@@ -36,7 +37,7 @@ const PetCard: React.FC<Props> = (props) => {
           </div>
 
           <div id="petcard-pet-location">
-            <LocationPoint />
+            <img src={locationPoint} alt={`${props.petName} location`} />
             <span>{props.location}</span>
           </div>
         </div>
