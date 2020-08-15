@@ -21,6 +21,10 @@ const PetCard: React.FC<Props> = (props) => {
         </div>
 
         <div id="petcard-pet-info">
+          <div id="petcard-pet-location">
+            <Gps />
+            <span>{props.location}</span>
+          </div>
           <div id="petcard-pet-title">
             <h2>{props.petName}</h2>
             <div id="petcard-pet-title-space"></div>
@@ -29,11 +33,6 @@ const PetCard: React.FC<Props> = (props) => {
 
           <div id="petcard-pet-characteristics">
             <span>{props.characteristics.join(', ')}</span>
-          </div>
-
-          <div id="petcard-pet-location">
-            <Gps />
-            <span>{props.location}</span>
           </div>
         </div>
       </div>

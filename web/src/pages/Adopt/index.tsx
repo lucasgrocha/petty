@@ -1,5 +1,6 @@
 import React from 'react';
 import PetCard from '../../components/PetCard';
+import faker from 'faker';
 
 const Adopt: React.FC = () => {
   return (
@@ -16,19 +17,9 @@ const Adopt: React.FC = () => {
               ][Math.floor(Math.random() * 3)]
             }
             age={5}
-            petName={'Chico'}
-            characteristics={[
-              'Cute',
-              'Lovely',
-              'Funny',
-              'Beauty',
-              'Young',
-              'Lorem',
-              'Bottle',
-              '123',
-              'Nothing',
-            ]}
-            location="Brasil"
+            petName={faker.name.firstName()}
+            characteristics={faker.random.words(7).split(' ')}
+            location={`${faker.address.city()}, ${faker.address.state()}`}
           />
         ))}
       </div>
