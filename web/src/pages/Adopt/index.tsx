@@ -13,8 +13,9 @@ const Adopt: React.FC = () => {
               [
                 'https://bit.ly/3kNyZOQ',
                 'https://bit.ly/2Fhifzd',
-                'https://bit.ly/3gZDALG',
-              ][Math.floor(Math.random() * 3)]
+                'https://bit.ly/31U0wWh',
+                'https://bit.ly/2PXBb8s',
+              ][Math.floor(Math.random() * 4)]
             }
             age={Math.floor(Math.random() * 10 + 1)}
             petName={faker.name.firstName()}
