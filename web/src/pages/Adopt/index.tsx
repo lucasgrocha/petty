@@ -16,9 +16,9 @@ const Adopt: React.FC = () => {
                 'https://bit.ly/3gZDALG',
               ][Math.floor(Math.random() * 3)]
             }
-            age={5}
+            age={Math.floor(Math.random() * 10 + 1)}
             petName={faker.name.firstName()}
-            characteristics={faker.random.words(7).split(' ')}
+            description={faker.lorem.sentences()}
             location={`${faker.address.city()}, ${faker.address.state()}`}
           />
         ))}

@@ -32,14 +32,18 @@
 
 #petcard-pet-title #petcard-pet-title-space {
   margin: 0 1rem;
-  padding: 0 0.1rem;
+  padding: 0 0.01rem;
   height: 100%;
-  background-color: black;
+  background-color: grey;
 }
 
-#petcard-pet-characteristics {
+#petcard-pet-description {
   width: 100%;
-  max-width: 40rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-bottom: 1rem;
 }
 
 #petcard-pet-location {
