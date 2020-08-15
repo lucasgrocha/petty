@@ -1,0 +1,68 @@
+.petcard {
+  flex: 0 0 calc(33.3% - 2rem);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.petcard:last-child {
+  margin-right: 0;
+}
+
+#petcard-pet-info {
+  padding: 1.5rem;
+}
+
+#petcard-pet-picture img {
+  width: 100%;
+  height: 31rem;
+}
+
+#petcard-pet-title {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+#petcard-pet-title {
+  height: 2rem;
+}
+
+#petcard-pet-title #petcard-pet-title-space {
+  margin: 0 1rem;
+  padding: 0 0.1rem;
+  height: 100%;
+  background-color: black;
+}
+
+#petcard-pet-characteristics {
+  width: 100%;
+  max-width: 40rem;
+}
+
+#petcard-pet-location {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+#petcard-pet-location svg {
+  width: 2rem;
+  margin-right: 0.2rem;
+}
+
+#petcard-pet-location span {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 700px) {
+  .petcard {
+    flex: 0 0 100%;
+  }
+
+  #petcard-pet-picture img {
+    height: 20rem;
+  }
+}
