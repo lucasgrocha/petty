@@ -38,6 +38,22 @@ textarea {
   max-width: 1200px;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #acacac;
+  border-radius: 4px;
+}
+
 @media screen and (min-width: 700px) {
   :root {
     font-size: 62.5%;
