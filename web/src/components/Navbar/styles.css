@@ -2,6 +2,7 @@
   width: 100vw;
   background-color: rgb(51, 192, 51);
   padding: 1rem;
+  position: absolute;
 }
 
 #navbar-content {

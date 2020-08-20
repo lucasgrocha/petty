@@ -2,12 +2,12 @@ import React from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Adopt from './pages/Adopt';
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 
 function AppRoutes() {
   return (
     <BrowserRouter>
-      <Header />
+      <Navbar />
 
       <Routes>
         <Route path="/adopt" element={<Adopt />} />
