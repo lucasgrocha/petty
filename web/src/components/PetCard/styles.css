@@ -5,8 +5,9 @@
   background-color: rgb(255, 255, 255);
   margin-right: 2rem;
   margin-bottom: 2rem;
+  text-decoration: none;
+  color: black;
 }
-
 .petcard:last-child {
   margin-right: 0;
 }

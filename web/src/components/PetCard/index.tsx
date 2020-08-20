@@ -1,7 +1,6 @@
 import React from 'react';
-
-// import { LocationOn as LocationPoint } from '@styled-icons/material';
 import locationPoint from '../../assets/images/icons/gps.svg';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
@@ -15,7 +14,7 @@ interface Props {
 
 const PetCard: React.FC<Props> = (props) => {
   return (
-    <div className="petcard">
+    <Link to={`/adopt/pet/${props.petName}`} className="petcard">
       <div id="petcard-info">
         <div id="petcard-pet-picture">
           <img src={props.pictureURL} alt={props.petName} />
@@ -42,7 +41,7 @@ const PetCard: React.FC<Props> = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
