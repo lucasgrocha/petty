@@ -4,13 +4,11 @@ class Api::V1::PetsController < ApplicationController
   # GET /pets
   def index
     @pets = Pet.all
-
-    render json: @pets
   end
 
   # GET /pets/1
   def show
-    render json: @pet
+    @pet
   end
 
   # POST /pets
