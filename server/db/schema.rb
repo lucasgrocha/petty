@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_193822) do
     t.text "description"
     t.integer "age"
     t.string "location"
-    t.bigint "contact_id", null: false
+    t.bigint "contact_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["contact_id"], name: "index_pets_on_contact_id"
