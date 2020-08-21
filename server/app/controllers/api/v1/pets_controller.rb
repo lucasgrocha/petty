@@ -3,6 +3,7 @@ class Api::V1::PetsController < ApplicationController
 
   # GET /pets
   def index
+    # expires_in 15.seconds, public: true #-> caching strategy
     @pets = Pet.all
   end
 
