@@ -1,26 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PetCard from '../../components/PetCard';
-import faker from 'faker';
+import petService from '../../services/petService';
+
+interface Pet {
+  id: number;
+  age: number;
+  description: string;
+  location: string;
+  pet_name: string;
+  picture_url: string;
+}
 
 const Adopt: React.FC = () => {
+  const [pets, setPets] = useState<Pet[]>()
+
+  useEffect(() => {
+    petService.index().then(res => {
+      setPets(res.data)
+    })
+  }, [])
+
   return (
     <div className="container">
       <div id="adopt-wrapper" style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {[1, 2, 3, 4, 5, 6].map((i) => (
+        {pets?.map((pet) => (
           <PetCard
-            key={i}
-            pictureURL={
-              [
-                'https://bit.ly/3kNyZOQ',
-                'https://bit.ly/2Fhifzd',
-                'https://bit.ly/31U0wWh',
-                'https://bit.ly/2PXBb8s',
-              ][Math.floor(Math.random() * 4)]
-            }
-            age={Math.floor(Math.random() * 10 + 1)}
-            petName={faker.name.firstName()}
-            description={faker.lorem.sentences()}
-            location={`${faker.address.city()}, ${faker.address.state()}`}
+            key={pet.id}
+            pictureURL={`http://localhost:3000/${pet.picture_url}`}
+            age={pet.age}
+            petName={pet.pet_name}
+            description={pet.description}
+            location={pet.location}
           />
         ))}
       </div>
