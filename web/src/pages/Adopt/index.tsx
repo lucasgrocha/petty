@@ -8,7 +8,7 @@ interface Pet {
   description: string;
   location: string;
   pet_name: string;
-  picture_url: string;
+  pictures_url: string[];
 }
 
 const Adopt: React.FC = () => {
@@ -26,7 +26,7 @@ const Adopt: React.FC = () => {
         {pets?.map((pet) => (
           <PetCard
             key={pet.id}
-            pictureURL={pet.picture_url}
+            pictureURL={pet.pictures_url[0]}
             age={pet.age}
             petName={pet.pet_name}
             description={pet.description}
