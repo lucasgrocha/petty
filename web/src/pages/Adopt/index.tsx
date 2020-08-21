@@ -26,7 +26,7 @@ const Adopt: React.FC = () => {
         {pets?.map((pet) => (
           <PetCard
             key={pet.id}
-            pictureURL={`http://localhost:3000/${pet.picture_url}`}
+            pictureURL={pet.picture_url}
             age={pet.age}
             petName={pet.pet_name}
             description={pet.description}

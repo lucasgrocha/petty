@@ -6,5 +6,5 @@ json.array!(@pets) do |pet|
   json.age pet.age
   json.location pet.location
   json.contact_infos pet.contact_infos
-  json.picture_url url_for(pet.picture)
+  json.picture_url polymorphic_url(pet.picture)
 end
