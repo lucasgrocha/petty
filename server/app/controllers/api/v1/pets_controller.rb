@@ -4,7 +4,7 @@ class Api::V1::PetsController < ApplicationController
   # GET /pets
   def index
     # expires_in 15.seconds, public: true #-> caching strategy
-    @pets = Pet.all.order(created_at: :desc)
+    @pets = Pet.last(9).reverse
   end
 
   # GET /pets/1
