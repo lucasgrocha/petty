@@ -12,7 +12,7 @@ FactoryBot.define do
       filename_images = Dir.entries('tmp/images').select { |f| !File.directory? f }
       file_image_name = filename_images.sample
 
-      pet.picture.attach(io: File.open("#{tmp_dir}/images/#{file_image_name}"), filename: file_image_name)
+      pet.pictures.attach(io: File.open("#{tmp_dir}/images/#{file_image_name}"), filename: file_image_name)
     end
   end
 end

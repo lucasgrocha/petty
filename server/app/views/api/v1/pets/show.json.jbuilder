@@ -5,4 +5,4 @@ json.description @pet.description
 json.age @pet.age
 json.location @pet.location
 json.contact_infos @pet.contact_infos
-json.picture_url polymorphic_url(@pet.picture)
+json.pictures_url @pet.pictures.map { |pic| polymorphic_url(pic) }

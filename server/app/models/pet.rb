@@ -1,5 +1,5 @@
 class Pet < ApplicationRecord
-  has_one_attached :picture
+  has_many_attached :pictures
 
   attribute :contact_infos
 
