@@ -4,40 +4,50 @@ import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-interface Props {
-  pictureURL: string;
-  petName: string;
-  age: number;
+export interface Pet {
+  id: number;
+  owner_name: string;
+  pet_name: string;
   description: string;
+  age: number;
   location: string;
+  contact_infos: {
+    whatsapp: string;
+    email: string;
+  };
+  pictures_url: string[];
 }
 
-const PetCard: React.FC<Props> = (props) => {
+interface Props {
+  petData: Pet;
+}
+
+const PetCard: React.FC<Props> = ({ petData }) => {
   return (
-    <Link to={`/adopt/pet/${props.petName}`} className="petcard">
+    <Link to={`/pets/${petData.id}`} className="petcard">
       <div id="petcard-info">
         <div id="petcard-pet-picture">
-          <img src={props.pictureURL} alt={props.petName} />
+          <img src={petData.pictures_url[0]} alt={petData.pet_name} />
         </div>
 
         <div id="petcard-pet-info">
           <div id="petcard-pet-title">
-            <h2>{props.petName}</h2>
+            <h2>{petData.pet_name}</h2>
 
             <div id="petcard-pet-title-space" />
 
             <span>
-              {props.age} {props.age > 1 ? 'anos' : 'ano'}
+              {petData.age} {petData.age > 1 ? 'anos' : 'ano'}
             </span>
           </div>
 
           <div id="petcard-pet-description">
-            <span>{props.description}</span>
+            <span>{petData.description}</span>
           </div>
 
           <div id="petcard-pet-location">
-            <img src={locationPoint} alt={`${props.petName} location`} />
-            <span>{props.location}</span>
+            <img src={locationPoint} alt={`${petData.pet_name} location`} />
+            <span>{petData.location}</span>
           </div>
         </div>
       </div>

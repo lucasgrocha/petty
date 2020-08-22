@@ -1,18 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import PetCard from '../../components/PetCard';
+import PetCard, { Pet as PetInterface } from '../../components/PetCard';
 import petService from '../../services/petService';
 
-interface Pet {
-  id: number;
-  age: number;
-  description: string;
-  location: string;
-  pet_name: string;
-  pictures_url: string[];
-}
-
 const Adopt: React.FC = () => {
-  const [pets, setPets] = useState<Pet[]>()
+  const [pets, setPets] = useState<PetInterface[]>()
 
   useEffect(() => {
     petService.index().then(res => {
@@ -25,12 +16,7 @@ const Adopt: React.FC = () => {
       <div id="adopt-wrapper" style={{ display: 'flex', flexWrap: 'wrap' }}>
         {pets?.map((pet) => (
           <PetCard
-            key={pet.id}
-            pictureURL={pet.pictures_url[0]}
-            age={pet.age}
-            petName={pet.pet_name}
-            description={pet.description}
-            location={pet.location}
+            petData={pet}
           />
         ))}
       </div>
