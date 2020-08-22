@@ -24,7 +24,7 @@ interface Props {
 
 const PetCard: React.FC<Props> = ({ petData }) => {
   return (
-    <Link to={`/pets/${petData.id}`} className="petcard">
+    <Link to={`/pets/${petData.id}`} className="petcard" state={petData}>
       <div id="petcard-info">
         <div id="petcard-pet-picture">
           <img src={petData.pictures_url[0]} alt={petData.pet_name} />
