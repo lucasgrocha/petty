@@ -11,7 +11,7 @@ export interface Pet {
   description: string;
   age: number;
   location: string;
-  contact_infos: {
+  contacts: {
     whatsapp: string;
     email: string;
   };

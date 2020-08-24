@@ -1,11 +1,11 @@
 class Pet < ApplicationRecord
   has_many_attached :pictures
 
-  attribute :contact_infos
+  attribute :contacts
 
   belongs_to :contact
 
-  def contact_infos
+  def contacts
     {
       whatsapp: contact.whatsapp,
       email: contact.email

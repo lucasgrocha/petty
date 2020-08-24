@@ -5,6 +5,6 @@ json.array!(@pets) do |pet|
   json.description pet.description
   json.age pet.age
   json.location pet.location
-  json.contact_infos pet.contact_infos
+  json.contacts pet.contacts
   json.pictures_url pet.pictures.map { |pic| polymorphic_url(pic) }
 end

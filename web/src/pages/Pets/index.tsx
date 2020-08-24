@@ -26,7 +26,7 @@ const Pets: React.FC = () => {
     <div className="container">
       <h1>{petData?.id}</h1>
       <h1>{petData?.pet_name}</h1>
-      <h1>{petData?.age}</h1>
+      <h1>{petData.contacts.whatsapp}</h1>
     </div>
   );
 };
