@@ -1,0 +1,59 @@
+@import '~react-image-gallery/styles/css/image-gallery.css';
+
+#pets-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  margin: auto auto;
+}
+
+#pets-info-top {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+#pets-info-top #pets-photo-gallery {
+  width: 100%;
+}
+
+#pets-info-top #pets-photo-gallery svg {
+  width: 2rem;
+}
+
+#pets-info-top #pets-info-infos {
+  width: 100%;
+}
+
+.pet-info-prop h3 {
+  font: 400 1.9rem Archivo;
+}
+
+.pet-info-prop span {
+  color: black;
+}
+
+#pet-info-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#pet-info-buttons a {
+  padding: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  width: 49%;
+  color: white;
+  background-color: rgb(19, 211, 12);
+  border-radius: 0.2rem;
+  cursor: pointer;
+  outline: none;
+  border: 0.1rem solid rgb(15, 168, 9);
+}
+
+@media screen and (max-width: 1000px) {
+  #pets-wrapper {
+    width: 100%;
+  }
+}
