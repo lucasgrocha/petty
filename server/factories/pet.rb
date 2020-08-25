@@ -10,9 +10,16 @@ FactoryBot.define do
     after :create do |pet|  
       tmp_dir = Rails.root.join("tmp")
       filename_images = Dir.entries('tmp/images').select { |f| !File.directory? f }
-      file_image_name = filename_images.sample
 
-      pet.pictures.attach(io: File.open("#{tmp_dir}/images/#{file_image_name}"), filename: file_image_name)
+      files = []
+
+      rand(1...5).times do
+        files << File.open("#{tmp_dir}/images/#{filename_images.sample}")
+      end
+
+      pet.pictures = files
+
+      pet.save!
     end
   end
 end

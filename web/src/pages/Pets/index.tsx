@@ -29,7 +29,7 @@ const Pets: React.FC = () => {
     return null;
   }
 
-  const IMAGES = petData.pictures_url.map((pic, index) => ({
+  const IMAGES = petData.pictures_url.map(pic => `http://192.168.15.11:3000/${pic}`).map((pic, index) => ({
     original: pic,
     thumbnail: pic,
   }));

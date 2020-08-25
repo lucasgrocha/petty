@@ -1,5 +1,7 @@
 class Pet < ApplicationRecord
-  has_many_attached :pictures
+  mount_uploaders :pictures, PetPictureUploader
+
+  # has_many_attached :pictures
 
   attribute :contacts
 
