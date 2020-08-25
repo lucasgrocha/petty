@@ -7,7 +7,7 @@ FactoryBot.define do
     location { FFaker::Address.street_address }
     contact { FactoryBot.create(:contact) }
 
-    after :create do |pet|  
+    before :create do |pet|
       tmp_dir = Rails.root.join("tmp")
       filename_images = Dir.entries('tmp/images').select { |f| !File.directory? f }
 
@@ -18,8 +18,6 @@ FactoryBot.define do
       end
 
       pet.pictures = files
-
-      pet.save!
     end
   end
 end
