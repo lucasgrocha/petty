@@ -74,11 +74,12 @@ const Pets: React.FC = () => {
         <div id="pet-info-buttons">
           <a
             target="_blank"
+            rel="noopener noreferrer"
             href={`https://wa.me/${petData.contacts.whatsapp}`}
           >
             Whatsapp
           </a>
-          <a target="_blank" href={`mailto:${petData.contacts.email}`}>
+          <a target="_blank" rel="noopener noreferrer" href={`mailto:${petData.contacts.email}`}>
             Email
           </a>
         </div>
