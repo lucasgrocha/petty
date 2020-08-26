@@ -50,25 +50,22 @@ const Pets: React.FC = () => {
         </div>
 
         <div id="pets-info">
-          <div id="pets-info-infos">
-            <div className="pet-info-prop">
-              <h3>
-                Name: <span>{petData.pet_name}</span>
-              </h3>
-
-              <h3>
-                Age: <span>{petData.age}</span>
-              </h3>
-
-              <h3>
-                Location: <span>{petData.location}</span>
-              </h3>
-            </div>
+          <div id="pets-title">
+            <header>
+              <h1>{petData.pet_name}</h1>
+              <h4>
+                {petData.location} | {petData.age} anos
+              </h4>
+            </header>
           </div>
-          <hr />
+
           <div id="pets-info-description">
             <p>{petData.description}</p>
           </div>
+
+          <p id="pets-info-owner">
+            <small>Por: {petData.owner_name}</small>
+          </p>
         </div>
 
         <div id="pet-info-buttons">

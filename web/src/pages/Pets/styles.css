@@ -29,12 +29,21 @@
   width: 100%;
 }
 
-.pet-info-prop h3 {
-  font: 400 1.9rem Archivo;
+#pets-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.pet-info-prop span {
-  color: black;
+#pets-title h1,
+h4 {
+  text-align: center;
+  color: rgb(31, 31, 31);
+}
+
+#pets-title h1 {
+  font: 400 4rem Archivo;
 }
 
 #pet-info-buttons {
@@ -47,6 +56,16 @@
   padding: 2rem;
 }
 
+#pets-info #pets-info-description {
+  color: rgb(31, 31, 31);
+}
+
+#pets-info #pets-info-owner {
+  margin-top: 2rem;
+  color: rgb(63, 63, 63);
+  font: 400 1.6rem Archivo;
+}
+
 #pet-info-buttons a {
   padding: 1.2rem;
   text-align: center;
@@ -56,11 +75,15 @@
   justify-content: center;
   align-items: center;
   color: white;
-  background-color: rgb(19, 211, 12);
+  background-color: rgb(5, 155, 0);
   border-radius: 0.2rem;
-  cursor: pointer;
   outline: none;
-  border: 0.1rem solid rgb(15, 168, 9);
+  height: 6rem;
+  transition: background-color 0.2s;
+}
+
+#pet-info-buttons a:hover {
+  background-color: rgb(4, 133, 0);
 }
 
 @media screen and (max-width: 1000px) {
