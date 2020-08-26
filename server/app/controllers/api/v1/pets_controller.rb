@@ -1,10 +1,10 @@
 class Api::V1::PetsController < ApplicationController
-  before_action :set_pet, only: [:show, :update, :destroy]
+  before_action :set_pet, only: %i[show update destroy]
 
   # GET /pets
   def index
     # expires_in 15.seconds, public: true #-> caching strategy
-    @pets = Pet.last(9).reverse
+    @pets = Pet.where(status: params[:status]).last(9).reverse
   end
 
   # GET /pets/1
@@ -38,13 +38,14 @@ class Api::V1::PetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pet
-      @pet = Pet.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def pet_params
-      params.require(:pet).permit(:owner_name, :pet_name, :description, :age, :location, :contact_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pet
+    @pet = Pet.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def pet_params
+    params.require(:pet).permit(:owner_name, :pet_name, :description, :age, :location, :contact_id)
+  end
 end

@@ -1,8 +1,8 @@
-import api from "./api";
+import api from './api';
 
 const petService = {
-  index: () => api.get('pets'),
-  show: (id: string) => api.get(`pets/${id}`)
-}
+  index: (status: string) => api.get(`pets?status=${status}`),
+  show: (id: string) => api.get(`pets/${id}`),
+};
 
-export default petService
+export default petService;

@@ -11,6 +11,7 @@ export interface Pet {
   description: string;
   age: number;
   location: string;
+  status: string;
   contacts: {
     whatsapp: string;
     email: string;
@@ -27,7 +28,10 @@ const PetCard: React.FC<Props> = ({ petData }) => {
     <Link to={`/pets/${petData.id}`} className="petcard" state={petData}>
       <div id="petcard-info">
         <div id="petcard-pet-picture">
-          <img src={`http://192.168.15.11:3000/${petData.pictures_url[0]}`} alt={petData.pet_name} />
+          <img
+            src={`http://192.168.15.11:3000/${petData.pictures_url[0]}`}
+            alt={petData.pet_name}
+          />
         </div>
 
         <div id="petcard-pet-info">

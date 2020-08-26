@@ -6,7 +6,7 @@ const Adopt: React.FC = () => {
   const [pets, setPets] = useState<PetInterface[]>();
 
   useEffect(() => {
-    petService.index().then((res) => {
+    petService.index('adoption').then((res) => {
       setPets(res.data);
     });
   }, []);

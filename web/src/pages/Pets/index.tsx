@@ -56,6 +56,9 @@ const Pets: React.FC = () => {
               <h4>
                 {petData.location} | {petData.age} anos
               </h4>
+              <p>
+                <small>{petData.status}</small>
+              </p>
             </header>
           </div>
 

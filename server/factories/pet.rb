@@ -6,9 +6,10 @@ FactoryBot.define do
     age { (1..20).to_a.sample }
     location { FFaker::Address.street_address }
     contact { FactoryBot.create(:contact) }
+    status { rand(0..1) }
 
     before :create do |pet|
-      tmp_dir = Rails.root.join("tmp")
+      tmp_dir = Rails.root.join('tmp')
       filename_images = Dir.entries('tmp/images').select { |f| !File.directory? f }
 
       files = []

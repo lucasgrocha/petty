@@ -6,5 +6,6 @@ json.array!(@pets) do |pet|
   json.age pet.age
   json.location pet.location
   json.contacts pet.contacts
+  json.status pet.status
   json.pictures_url pet.pictures.map { |pic| pic.url }
 end
