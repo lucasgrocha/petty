@@ -14,7 +14,7 @@ export interface Pet {
   status: string;
   last_seen: string | null;
   contacts: {
-    whatsapp: string;
+    phone_number: string;
     email: string;
   };
   pictures_url: string[];

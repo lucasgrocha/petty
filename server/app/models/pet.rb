@@ -10,7 +10,7 @@ class Pet < ApplicationRecord
 
   def contacts
     {
-      whatsapp: contact.whatsapp,
+      phone_number: contact.phone_number,
       email: contact.email
     }
   end

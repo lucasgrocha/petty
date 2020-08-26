@@ -75,9 +75,9 @@ const Pets: React.FC = () => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href={`https://wa.me/${petData.contacts.whatsapp}`}
+            href={`https://wa.me/${petData.contacts.phone_number}`}
           >
-            Whatsapp
+            Phone
           </a>
           <a
             target="_blank"

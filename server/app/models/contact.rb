@@ -6,6 +6,6 @@ class Contact < ApplicationRecord
   private
 
   def filter_number
-    self.whatsapp = self.whatsapp.scan(/\+\d+|\d+/).join('')
+    self.phone_number = self.phone_number.scan(/\+\d+|\d+/).join('')
   end
 end
