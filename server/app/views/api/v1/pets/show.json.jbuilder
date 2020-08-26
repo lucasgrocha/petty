@@ -5,5 +5,6 @@ json.description @pet.description
 json.age @pet.age
 json.location @pet.location
 json.contacts @pet.contacts
-json.status @pet.status
+json.status Pet.statuses[@pet.status]
+json.last_seen @pet.last_seen
 json.pictures_url @pet.pictures.map { |pic| pic.url }

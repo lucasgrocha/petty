@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_142622) do
     t.integer "age"
     t.string "location"
     t.integer "status"
+    t.string "last_seen"
     t.bigint "contact_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -19,6 +19,8 @@ FactoryBot.define do
       end
 
       pet.pictures = files
+
+      pet.last_seen = FFaker::Lorem.paragraph if pet.status == 'lost'
     end
   end
 end

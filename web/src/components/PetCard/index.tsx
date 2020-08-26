@@ -12,6 +12,7 @@ export interface Pet {
   age: number;
   location: string;
   status: string;
+  last_seen: string | null;
   contacts: {
     whatsapp: string;
     email: string;
