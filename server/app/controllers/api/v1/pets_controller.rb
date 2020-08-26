@@ -1,5 +1,6 @@
 class Api::V1::PetsController < ApplicationController
   before_action :set_pet, only: %i[show update destroy]
+  before_action :validate_status_param, only: %i[index]
 
   # GET /pets
   def index
@@ -47,5 +48,17 @@ class Api::V1::PetsController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def pet_params
     params.require(:pet).permit(:owner_name, :pet_name, :description, :age, :location, :contact_id)
+  end
+
+  def validate_status_param
+    pet_statuses = Pet.statuses.keys
+
+    unless pet_statuses.include?(params[:status])
+      render json: {
+        status: 422,
+        message: 'Invalid status',
+        available_statuses: pet_statuses
+      }, status: :unprocessable_entity
+    end
   end
 end
