@@ -5,23 +5,27 @@
   flex-direction: column;
   width: 50vw;
   margin: auto auto;
+  background-color: rgb(241, 241, 241);
 }
 
-#pets-info-top {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
-#pets-info-top #pets-photo-gallery {
+#pets-photo-gallery {
   width: 100%;
 }
 
-#pets-info-top #pets-photo-gallery svg {
+#pets-photo-gallery svg {
   width: 2rem;
 }
 
-#pets-info-top #pets-info-infos {
+#pets-photo-gallery .image-gallery-bullet {
+  padding: 0.5rem;
+  box-shadow: none;
+}
+
+#pets-photo-gallery .image-gallery-bullet:hover {
+  background-color: white;
+}
+
+#pets-info-infos {
   width: 100%;
 }
 
@@ -39,11 +43,18 @@
   width: 100%;
 }
 
+#pets-info {
+  padding: 2rem;
+}
+
 #pet-info-buttons a {
   padding: 1.2rem;
   text-align: center;
   text-decoration: none;
   width: 49%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
   background-color: rgb(19, 211, 12);
   border-radius: 0.2rem;

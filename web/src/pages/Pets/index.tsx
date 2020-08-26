@@ -29,24 +29,27 @@ const Pets: React.FC = () => {
     return null;
   }
 
-  const IMAGES = petData.pictures_url.map(pic => `http://192.168.15.11:3000/${pic}`).map((pic, index) => ({
-    original: pic,
-    thumbnail: pic,
-  }));
+  const IMAGES = petData.pictures_url
+    .map((pic) => `http://192.168.15.11:3000/${pic}`)
+    .map((pic) => ({
+      original: pic,
+      thumbnail: pic,
+    }));
 
   return (
     <div className="container">
       <div id="pets-wrapper">
-        <div id="pets-info-top">
-          <div id="pets-photo-gallery">
-            <ImageGallery
-              items={IMAGES}
-              showFullscreenButton={false}
-              showPlayButton={false}
-              showThumbnails={false}
-              showBullets={petData.pictures_url.length > 1}
-            />
-          </div>
+        <div id="pets-photo-gallery">
+          <ImageGallery
+            items={IMAGES}
+            showFullscreenButton={false}
+            showPlayButton={false}
+            showThumbnails={false}
+            showBullets={petData.pictures_url.length > 1}
+          />
+        </div>
+
+        <div id="pets-info">
           <div id="pets-info-infos">
             <div className="pet-info-prop">
               <h3>
@@ -62,10 +65,7 @@ const Pets: React.FC = () => {
               </h3>
             </div>
           </div>
-        </div>
-        <hr />
-
-        <div id="pets-info-bottom">
+          <hr />
           <div id="pets-info-description">
             <p>{petData.description}</p>
           </div>
@@ -79,7 +79,11 @@ const Pets: React.FC = () => {
           >
             Whatsapp
           </a>
-          <a target="_blank" rel="noopener noreferrer" href={`mailto:${petData.contacts.email}`}>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`mailto:${petData.contacts.email}`}
+          >
             Email
           </a>
         </div>
