@@ -5,7 +5,9 @@ class Api::V1::PetsController < ApplicationController
   # GET /pets
   def index
     # expires_in 15.seconds, public: true #-> caching strategy
-    @pets = Pet.where(status: params[:status]).last(9).reverse
+    @pets = Pet.where(status: params[:status])
+               .order(created_at: :desc)
+               .paginate(page: params[:page], per_page: 9)
   end
 
   # GET /pets/1
