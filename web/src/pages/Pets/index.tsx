@@ -56,18 +56,27 @@ const Pets: React.FC = () => {
               <h4>
                 {petData.location} | {petData.age} anos
               </h4>
-              <p>
-                <small>{petData.status}</small>
-              </p>
             </header>
           </div>
 
-          <div id="pets-info-description">
+          <div className="pets-info-description">
+            <p>
+              <strong>Descrição</strong>
+            </p>
             <p>{petData.description}</p>
           </div>
 
+          {petData.last_seen && (
+            <div className="pets-info-description">
+              <p style={{ textAlign: 'left' }}>
+                <strong>Ultimo avistamento</strong>
+              </p>
+              <p>{petData.last_seen}</p>
+            </div>
+          )}
+
           <p id="pets-info-owner">
-            <small>Por: {petData.owner_name}</small>
+            <small>{petData.owner_name} ~</small>
           </p>
         </div>
 

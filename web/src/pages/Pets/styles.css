@@ -33,7 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.6rem;
 }
 
 #pets-title h1,
@@ -53,17 +53,23 @@ h4 {
 }
 
 #pets-info {
-  padding: 2rem;
+  padding: 1.3rem;
 }
 
-#pets-info #pets-info-description {
+#pets-info .pets-info-description {
   color: rgb(31, 31, 31);
+}
+
+#pets-info .pets-info-description p:first-child {
+  line-height: 5rem;
+  text-decoration: underline;
 }
 
 #pets-info #pets-info-owner {
   margin-top: 2rem;
   color: rgb(63, 63, 63);
-  font: 400 1.6rem Archivo;
+  font: 400 1.5rem Archivo;
+  text-align: right;
 }
 
 #pet-info-buttons a {
@@ -83,7 +89,7 @@ h4 {
 }
 
 #pet-info-buttons a:hover {
-  background-color: rgb(4, 133, 0);
+  background-color: rgb(5, 133, 0);
 }
 
 @media screen and (max-width: 1000px) {
