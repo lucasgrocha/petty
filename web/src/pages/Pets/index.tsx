@@ -4,7 +4,7 @@ import './styles.css';
 
 import ImageGallery from 'react-image-gallery';
 import { Pet } from '../../components/PetCard';
-import petService from '../../services/petService';
+import petsService from '../../services/petsService';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const Pets: React.FC = () => {
@@ -14,7 +14,7 @@ const Pets: React.FC = () => {
 
   useEffect(() => {
     if (petData === undefined) {
-      petService
+      petsService
         .show(id)
         .then((res) => {
           setPetData(res.data);

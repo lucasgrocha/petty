@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import PetCard, { Pet as PetInterface } from '../../components/PetCard';
-import petService from '../../services/petService';
+import petsService from '../../services/petsService';
 
 const Adopt: React.FC = () => {
   const [pets, setPets] = useState<PetInterface[]>();
 
   useEffect(() => {
-    petService.index('adoption').then((res) => {
+    petsService.index('adoption').then((res) => {
       setPets(res.data);
     });
   }, []);
