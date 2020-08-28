@@ -79,3 +79,29 @@
     height: 20rem;
   }
 }
+
+.bounceCardIn {
+  animation: bounceIn 0.5s both;
+}
+
+.bounceCardOut {
+  animation: bounceOut 0.5s both;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+@keyframes bounceOut {
+  0% {
+    transform: translateY(-0.5rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

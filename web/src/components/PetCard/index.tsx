@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import locationPoint from '../../assets/images/icons/gps.svg';
 import { Link } from 'react-router-dom';
 
@@ -25,8 +25,23 @@ interface Props {
 }
 
 const PetCard: React.FC<Props> = ({ petData }) => {
+  const [mouseOver, setMouseOver] = useState<boolean>();
+
   return (
-    <Link to={`/pets/${petData.id}`} className="petcard" state={petData}>
+    <Link
+      to={`/pets/${petData.id}`}
+      className={[
+        'petcard',
+        mouseOver
+          ? 'bounceCardIn'
+          : mouseOver === undefined
+          ? ''
+          : 'bounceCardOut',
+      ].join(' ')}
+      onMouseEnter={() => setMouseOver(true)}
+      onMouseLeave={() => setMouseOver(false)}
+      state={petData}
+    >
       <div id="petcard-info">
         <div id="petcard-pet-picture">
           <img
