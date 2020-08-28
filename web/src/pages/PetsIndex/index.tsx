@@ -9,17 +9,21 @@ const PetsIndex: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const query = new URLSearchParams(window.location.search);
   const status = query.get('status') || 'adoption';
-  console.log(new URLSearchParams(window.location.search).get('status'));
 
   useEffect(() => {
-    petsService.index(status, page).then((res) => {
-      setPets((prevPets) => [...prevPets, ...res.data]);
-      document.getElementsByTagName('html')[0].scrollTop = scrollPosition;
+    petsService
+      .index(status, page)
+      .then((res) => {
+        setPets((prevPets) => [...prevPets, ...res.data]);
+        document.getElementsByTagName('html')[0].scrollTop = scrollPosition;
 
-      if (res.data.length === 0) {
-        setLastPage(true);
-      }
-    });
+        if (res.data.length === 0) {
+          setLastPage(true);
+        }
+      })
+      .catch(() => {
+        window.location.href = '/pets?status=adoption';
+      });
   }, [page, scrollPosition, status]);
 
   const handlePageChange = () => {

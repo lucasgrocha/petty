@@ -6,7 +6,6 @@ import logo from '../../assets/images/icons/logo.svg';
 import HamburgerMenu from '../HamburgerMenu';
 import Backdrop from '../Ui/Backdrop';
 import AsideMenuItems from '../AsideMenuItems';
-import { Link } from 'react-router-dom';
 
 interface MenuItem {
   icon: ReactNode;
@@ -38,9 +37,9 @@ const Navbar: React.FC = () => {
     <ul>
       {menuItems.map((item) => (
         <li key={item.label}>
-          <Link
+          <a
             className="link"
-            to={item.url}
+            href={item.url}
             onClick={() =>
               hamburgerMenuVisible && setHamburgerMenuVisible(false)
             }
@@ -49,7 +48,7 @@ const Navbar: React.FC = () => {
               {item.icon}
               {item.label}
             </div>
-          </Link>
+          </a>
         </li>
       ))}
     </ul>
