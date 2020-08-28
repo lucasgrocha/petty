@@ -6,20 +6,27 @@ const Adopt: React.FC = () => {
   const [pets, setPets] = useState<PetInterface[]>([]);
   const [page, setPage] = useState<number>(1);
   const [lastPage, setLastPage] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
     petsService.index('adoption', page).then((res) => {
       setPets((prevPets) => [...prevPets, ...res.data]);
+      document.getElementsByTagName('html')[0].scrollTop = scrollPosition;
 
       if (res.data.length === 0) {
         setLastPage(true);
       }
     });
-  }, [page]);
+  }, [page, scrollPosition]);
 
   const handlePageChange = () => {
+    setScrollPosition(retrieveCurrentScrollPosition());
     setPage((prevPage) => prevPage + 1);
   };
+
+  function retrieveCurrentScrollPosition() {
+    return document.getElementsByTagName('html')[0].scrollTop;
+  }
 
   return (
     <div className="container">
