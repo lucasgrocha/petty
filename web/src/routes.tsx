@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Adopt from './pages/Adopt';
+import PetsIndex from './pages/PetsIndex';
 import Navbar from './components/Navbar';
-import Pets from './pages/Pets'
+import PetsShow from './pages/PetsShow';
 
 function AppRoutes() {
   return (
@@ -11,8 +11,8 @@ function AppRoutes() {
       <Navbar />
 
       <Routes>
-        <Route path="/adopt" element={<Adopt />} />
-        <Route path="/pets/:id" element={<Pets />} />
+        <Route path="/pets" element={<PetsIndex />} />
+        <Route path="/pets/:id" element={<PetsShow />} />
       </Routes>
     </BrowserRouter>
   );

@@ -7,7 +7,7 @@ import { Pet } from '../../components/PetCard';
 import petsService from '../../services/petsService';
 import { useParams, useNavigate } from 'react-router-dom';
 
-const Pets: React.FC = () => {
+const PetsShow: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [petData, setPetData] = useState<Pet>(window.history.state.usr);
@@ -101,4 +101,4 @@ const Pets: React.FC = () => {
   );
 };
 
-export default Pets;
+export default PetsShow;

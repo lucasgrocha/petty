@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react';
 import PetCard, { Pet as PetInterface } from '../../components/PetCard';
 import petsService from '../../services/petsService';
 
-const Adopt: React.FC = () => {
+const PetsIndex: React.FC = () => {
   const [pets, setPets] = useState<PetInterface[]>([]);
   const [page, setPage] = useState<number>(1);
   const [lastPage, setLastPage] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const query = new URLSearchParams(window.location.search);
+  const status = query.get('status') || 'adoption';
+  console.log(new URLSearchParams(window.location.search).get('status'));
 
   useEffect(() => {
-    petsService.index('adoption', page).then((res) => {
+    petsService.index(status, page).then((res) => {
       setPets((prevPets) => [...prevPets, ...res.data]);
       document.getElementsByTagName('html')[0].scrollTop = scrollPosition;
 
@@ -17,7 +20,7 @@ const Adopt: React.FC = () => {
         setLastPage(true);
       }
     });
-  }, [page, scrollPosition]);
+  }, [page, scrollPosition, status]);
 
   const handlePageChange = () => {
     setScrollPosition(retrieveCurrentScrollPosition());
@@ -47,4 +50,4 @@ const Adopt: React.FC = () => {
   );
 };
 
-export default Adopt;
+export default PetsIndex;
