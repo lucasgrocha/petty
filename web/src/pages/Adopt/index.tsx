@@ -28,10 +28,14 @@ const Adopt: React.FC = () => {
     return document.getElementsByTagName('html')[0].scrollTop;
   }
 
+  if (pets.length === 0) {
+    return null;
+  }
+
   return (
     <div className="container">
       <div id="adopt-wrapper" style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {pets?.map((pet) => (
+        {pets.map((pet) => (
           <PetCard key={pet.id} petData={pet} />
         ))}
       </div>
