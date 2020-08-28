@@ -1,0 +1,99 @@
+@import '~react-image-gallery/styles/css/image-gallery.css';
+
+#pets-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  margin: auto auto;
+  background-color: rgb(241, 241, 241);
+}
+
+#pets-photo-gallery {
+  width: 100%;
+}
+
+#pets-photo-gallery svg {
+  width: 2rem;
+}
+
+#pets-photo-gallery .image-gallery-bullet {
+  padding: 0.5rem;
+  box-shadow: none;
+}
+
+#pets-photo-gallery .image-gallery-bullet:hover {
+  background-color: white;
+}
+
+#pets-info-infos {
+  width: 100%;
+}
+
+#pets-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.6rem;
+}
+
+#pets-title h1,
+h4 {
+  text-align: center;
+  color: rgb(31, 31, 31);
+}
+
+#pets-title h1 {
+  font: 400 4rem Archivo;
+}
+
+#pet-info-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#pets-info {
+  padding: 1.3rem;
+}
+
+#pets-info .pets-info-description {
+  color: rgb(31, 31, 31);
+}
+
+#pets-info .pets-info-description p:first-child {
+  line-height: 5rem;
+  text-decoration: underline;
+}
+
+#pets-info #pets-info-owner {
+  margin-top: 2rem;
+  color: rgb(63, 63, 63);
+  font: 400 1.5rem Archivo;
+  text-align: right;
+}
+
+#pet-info-buttons a {
+  padding: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  width: 49%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgb(5, 155, 0);
+  border-radius: 0.2rem;
+  outline: none;
+  height: 6rem;
+  transition: background-color 0.2s;
+}
+
+#pet-info-buttons a:hover {
+  background-color: rgb(5, 133, 0);
+}
+
+@media screen and (max-width: 1000px) {
+  #pets-wrapper {
+    width: 100%;
+  }
+}
