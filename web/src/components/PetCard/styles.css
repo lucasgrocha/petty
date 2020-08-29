@@ -81,11 +81,11 @@
 }
 
 .bounceCardIn {
-  animation: bounceIn 0.5s both;
+  animation: bounceIn 0.5s both linear;
 }
 
 .bounceCardOut {
-  animation: bounceOut 0.5s both;
+  animation: bounceOut 0.2s both linear;
 }
 
 @keyframes bounceIn {
