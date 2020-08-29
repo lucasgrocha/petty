@@ -1,0 +1,143 @@
+form {
+  background-color: white;
+  padding: 0.5rem 6rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.input-block label {
+  color: rgb(73, 73, 73);
+}
+
+.input-block input,
+textarea,
+.input-block > .radio-input {
+  margin-top: 1.6rem;
+}
+
+.input-block + .input-block {
+  margin-top: 2rem;
+}
+
+form,
+.input-block input,
+textarea,
+label {
+  font: 400 1.6rem Roboto;
+}
+
+.input-block input,
+textarea {
+  padding: 1rem 1.5rem;
+  outline: none;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: rgb(240, 240, 240);
+  transition: background-color 0.2s;
+}
+
+.input-block textarea,
+input[type='text'],
+input[type='number'],
+input[type='file'] {
+  width: 100%;
+  resize: vertical;
+}
+
+.input-block input:focus,
+textarea:focus {
+  background-color: rgb(245, 245, 245);
+}
+
+#form-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 70rem;
+  padding: 5rem 0;
+  margin: auto auto;
+}
+
+#btn-submit-wrapper {
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#btn-submit-wrapper button {
+  border: 0;
+  outline: 0;
+  background-color: yellowgreen;
+  color: white;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  width: 20rem;
+  height: 6rem;
+  transition: background-color 0.2s;
+}
+
+#btn-submit-wrapper button:hover {
+  background-color: rgb(154, 190, 50);
+}
+
+.radio-input {
+  display: flex;
+  position: relative;
+  padding-left: 2.6rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  font-size: 2.2rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  align-items: center;
+}
+
+.radio-input label {
+  cursor: pointer;
+}
+
+.radio-input input {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  height: 2.2rem;
+  width: 2.2rem;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.radio-input:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.radio-input input:checked ~ .checkmark {
+  background-color: #0ea315;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.radio-input input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.radio-input .checkmark:after {
+  top: 0.8rem;
+  left: 0.8rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: white;
+}

@@ -31,6 +31,11 @@ const Navbar: React.FC = () => {
       label: 'Ver desaparecidos',
       url: '/pets?status=lost',
     },
+    {
+      icon: <Pets className="list-icon" />,
+      label: 'Anunciar pet',
+      url: '/pets/create',
+    },
   ];
 
   const menuUlList = (
