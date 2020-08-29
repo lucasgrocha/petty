@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './styles.css';
 
 const CreatePet: React.FC = () => {
+  const [status, setStatus] = useState('adoption');
+
   return (
     <div className="container">
       <form>
@@ -34,8 +36,9 @@ const CreatePet: React.FC = () => {
                   type="radio"
                   id="lost"
                   name="status"
-                  value="lost"
                   required
+                  onChange={() => setStatus('lost')}
+                  value={status}
                 />
                 <div className="checkmark"></div>
               </label>
@@ -47,18 +50,21 @@ const CreatePet: React.FC = () => {
                   type="radio"
                   id="adoption"
                   name="status"
-                  value="adoption"
                   required
+                  onChange={() => setStatus('adoption')}
+                  value={status}
                 />
                 <div className="checkmark"></div>
               </label>
             </div>
           </div>
 
-          <div className="input-block">
-            <label htmlFor="last_seen">Visto por último</label>
-            <textarea rows={3} id="last_seen" />
-          </div>
+          {status === 'lost' && (
+            <div className="input-block">
+              <label htmlFor="last_seen">Visto por último</label>
+              <textarea rows={3} id="last_seen" required />
+            </div>
+          )}
 
           <div className="input-block">
             <label htmlFor="pictures">Fotos do pet</label>
