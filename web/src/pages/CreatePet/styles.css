@@ -141,3 +141,18 @@ textarea:focus {
   border-radius: 50%;
   background: white;
 }
+
+.fadeIn {
+  animation: fadeIn 0.8s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-7rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

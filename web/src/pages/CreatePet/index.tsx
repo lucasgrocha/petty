@@ -109,7 +109,7 @@ const CreatePet: React.FC = () => {
           </div>
 
           {status === 'lost' && (
-            <div className="input-block">
+            <div className="input-block fadeIn">
               <label htmlFor="last_seen">Visto por último</label>
               <textarea
                 rows={3}
