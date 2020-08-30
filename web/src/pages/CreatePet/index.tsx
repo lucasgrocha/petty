@@ -4,34 +4,34 @@ import './styles.css';
 import petsService from '../../services/petsService';
 
 const CreatePet: React.FC = () => {
-  const [status, setStatus] = useState<string>('');
-  const [pet_name, setPetName] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
+  const [status, setStatus] = useState<string>('adoption');
+  const [pet_name, setPetName] = useState<string>('Jucinei');
+  const [description, setDescription] = useState<string>('Blablabla');
   const [last_seen, setLastSeen] = useState<string>('');
   const [age, setAge] = useState<number>(1);
   // const [location, setLocation] = useState<string>();
-  const [files, setSelectedFiles] = useState<FileList>();
+  const [files, setSelectedFiles] = useState<File[]>([]);
 
   function handleSubmit(evt: FormEvent) {
     evt.preventDefault();
 
     const data = new FormData();
 
-    const petData = {
-      pet: {
-        status,
-        pet_name,
-        age,
-        description,
-        last_seen,
-        contacts: {
-          phone_number: '+55123123131231',
-        },
-      },
-    };
+    data.append('pet[status]', status);
+    data.append('pet[pet_name]', pet_name);
+    data.append('pet[age]', String(age));
+    data.append('pet[description]', description);
+    data.append('pet[contacts][phone_number]', '+550112121311');
+    if (files) {
+      for (let file of files) {
+        data.append('pet[pictures][]', file);
+      }
+    }
 
-    petsService.create(petData).then((res) => {
-      console.log(res.data);
+    petsService.create(data).then((res) => {
+      if (res.status === 201) {
+        alert('Registro salvo com sucesso');
+      }
     });
   }
 
@@ -125,11 +125,20 @@ const CreatePet: React.FC = () => {
             <label htmlFor="pictures">Fotos do pet</label>
             <input
               type="file"
-              multiple
               id="pictures"
-              onChange={(evt) =>
-                evt.target.files !== null && setSelectedFiles(evt.target.files)
-              }
+              multiple
+              onChange={(evt) => {
+                const selected = evt.target.files;
+                const filteredFiles: File[] = [];
+
+                if (selected) {
+                  for (let c = 0; c < selected.length; c++) {
+                    filteredFiles.push(selected[c]);
+                  }
+
+                  setSelectedFiles(filteredFiles);
+                }
+              }}
             />
           </div>
           <div id="btn-submit-wrapper">

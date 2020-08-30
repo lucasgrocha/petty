@@ -57,7 +57,7 @@ class Api::V1::PetsController < ApplicationController
                                 :description,
                                 :age,
                                 :location,
-                                :pictures,
+                                pictures: [],
                                 contacts: %i[phone_number email])
   end
 
