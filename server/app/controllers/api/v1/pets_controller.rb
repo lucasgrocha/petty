@@ -17,10 +17,11 @@ class Api::V1::PetsController < ApplicationController
 
   # POST /pets
   def create
-    @pet = Pet.new(pet_params)
+    @contact = Contact.new(pet_params[:contacts])
+    @pet = Pet.new(pet_params.except(:contacts).merge(contact: @contact))
 
     if @pet.save
-      render json: @pet, status: :created, location: @pet
+      render status: :created
     else
       render json: @pet.errors, status: :unprocessable_entity
     end
@@ -49,7 +50,15 @@ class Api::V1::PetsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def pet_params
-    params.require(:pet).permit(:owner_name, :pet_name, :description, :age, :location, :contact_id)
+    params.require(:pet).permit(:owner_name,
+                                :last_seen,
+                                :status,
+                                :pet_name,
+                                :description,
+                                :age,
+                                :location,
+                                :pictures,
+                                contacts: %i[phone_number email])
   end
 
   def validate_status_param
