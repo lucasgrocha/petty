@@ -7,7 +7,7 @@ const CreatePet: React.FC = () => {
   const [status, setStatus] = useState<string>('adoption');
   const [pet_name, setPetName] = useState<string>('Jucinei');
   const [description, setDescription] = useState<string>('Blablabla');
-  const [last_seen, setLastSeen] = useState<string>('');
+  const [last_seen, setLastSeen] = useState<string>();
   const [age, setAge] = useState<number>(1);
   // const [location, setLocation] = useState<string>();
   const [files, setSelectedFiles] = useState<File[]>([]);
@@ -26,6 +26,10 @@ const CreatePet: React.FC = () => {
       for (let file of files) {
         data.append('pet[pictures][]', file);
       }
+    }
+
+    if (last_seen) {
+      data.append('pet[last_seen]', last_seen);
     }
 
     petsService.create(data).then((res) => {
