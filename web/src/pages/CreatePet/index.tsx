@@ -126,7 +126,9 @@ const CreatePet: React.FC = () => {
             <input
               type="file"
               id="pictures"
+              name="pictures[]"
               multiple
+              accept="image/*"
               onChange={(evt) => {
                 const selected = evt.target.files;
                 const filteredFiles: File[] = [];
