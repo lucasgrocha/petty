@@ -150,6 +150,10 @@ textarea:focus {
   animation: fadeIn 0.8s both;
 }
 
+#pet-inputs .pet-inputs-title {
+  margin-bottom: 2rem;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -164,5 +168,9 @@ textarea:focus {
 @media screen and (max-width: 700px) {
   form {
     padding: 0.5rem 2rem;
+  }
+
+  #pet-inputs .pet-inputs-title {
+    font-size: 3rem;
   }
 }

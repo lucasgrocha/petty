@@ -92,127 +92,135 @@ const CreatePet: React.FC = () => {
     <div className="container">
       <form onSubmit={handleSubmit}>
         <div id="form-wrapper">
-          <div className="input-block">
-            <label htmlFor="pet_name">Nome do pet</label>
-            <br />
-            <input type="text" id="pet_name" required ref={petNameRef} />
-          </div>
-
-          <div className="input-block">
-            <label htmlFor="age">Idade</label>
-            <br />
-            <input type="number" id="age" min={0} required ref={ageRef} />
-          </div>
-
-          <div className="input-block">
-            <label htmlFor="description">Descrição</label>
-            <br />
-            <textarea rows={3} id="description" required ref={descriptionRef} />
-          </div>
-
-          <div className="input-block">
-            <label htmlFor="description">Estado</label>
-            <br />
-            <select
-              onChange={(e) => setSelectedState(e.target.value)}
-              defaultValue={'DEFAULT'}
-            >
-              <option disabled hidden value={'DEFAULT'}>
-                Escolha o estado
-              </option>
-              {states?.map((estado) => (
-                <option value={estado} key={estado}>
-                  {estado}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="input-block">
-            <label htmlFor="description">Cidade</label>
-            <br />
-            <select
-              onChange={(e) => setSelectedCity(e.target.value)}
-              disabled={!selectedState}
-              value={selectedCity}
-              defaultValue={'DEFAULT'}
-            >
-              <option disabled hidden value={'DEFAULT'}>
-                Escolha a cidade
-              </option>
-              {cities?.map((city) => (
-                <option value={city} key={city}>
-                  {city}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="input-block">
-            <p>Selecione o tipo</p>
-            <div className="radio-input">
-              <label htmlFor="adoption">
-                Adoção
-                <input
-                  type="radio"
-                  id="adoption"
-                  name="status"
-                  required
-                  onChange={() => setStatus('adoption')}
-                  value={status}
-                />
-                <div className="checkmark"></div>
-              </label>
+          <div id="pet-inputs">
+            <h1 className="pet-inputs-title">Dados do pet</h1>
+            <div className="input-block">
+              <label htmlFor="pet_name">Nome do pet</label>
+              <br />
+              <input type="text" id="pet_name" required ref={petNameRef} />
             </div>
-            <div className="radio-input">
-              <label htmlFor="lost">
-                Desaparecido
-                <input
-                  type="radio"
-                  id="lost"
-                  name="status"
-                  required
-                  onChange={() => setStatus('lost')}
-                  value={status}
-                />
-                <div className="checkmark"></div>
-              </label>
-            </div>
-          </div>
 
-          {status === 'lost' && (
-            <>
-              <div className="input-block fadeIn">
-                <p>Marque o local de ultimo avistamento do pet</p>
-                <LeafletMap
-                  mapClicked={handleMapClick}
-                  markerPosition={selectedPosition}
-                />
+            <div className="input-block">
+              <label htmlFor="age">Idade</label>
+              <br />
+              <input type="number" id="age" min={0} required ref={ageRef} />
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="description">Descrição</label>
+              <br />
+              <textarea
+                rows={3}
+                id="description"
+                required
+                ref={descriptionRef}
+              />
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="description">Estado</label>
+              <br />
+              <select
+                onChange={(e) => setSelectedState(e.target.value)}
+                defaultValue={'DEFAULT'}
+              >
+                <option disabled hidden value={'DEFAULT'}>
+                  Escolha o estado
+                </option>
+                {states?.map((estado) => (
+                  <option value={estado} key={estado}>
+                    {estado}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="input-block">
+              <label htmlFor="description">Cidade</label>
+              <br />
+              <select
+                onChange={(e) => setSelectedCity(e.target.value)}
+                disabled={!selectedState}
+                value={selectedCity}
+                defaultValue={'DEFAULT'}
+              >
+                <option disabled hidden value={'DEFAULT'}>
+                  Escolha a cidade
+                </option>
+                {cities?.map((city) => (
+                  <option value={city} key={city}>
+                    {city}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="input-block">
+              <p>Selecione o tipo</p>
+              <div className="radio-input">
+                <label htmlFor="adoption">
+                  Adoção
+                  <input
+                    type="radio"
+                    id="adoption"
+                    name="status"
+                    required
+                    onChange={() => setStatus('adoption')}
+                    value={status}
+                  />
+                  <div className="checkmark"></div>
+                </label>
               </div>
-            </>
-          )}
+              <div className="radio-input">
+                <label htmlFor="lost">
+                  Desaparecido
+                  <input
+                    type="radio"
+                    id="lost"
+                    name="status"
+                    required
+                    onChange={() => setStatus('lost')}
+                    value={status}
+                  />
+                  <div className="checkmark"></div>
+                </label>
+              </div>
+            </div>
 
-          <div className="input-block">
-            <label htmlFor="pictures">Fotos do pet</label>
-            <input
-              type="file"
-              id="pictures"
-              name="pictures[]"
-              multiple
-              accept="image/*"
-              onChange={(evt) => {
-                const selected = evt.target.files;
-                const filteredFiles: File[] = [];
+            {status === 'lost' && (
+              <>
+                <div className="input-block fadeIn">
+                  <p>Marque o local de ultimo avistamento do pet</p>
+                  <LeafletMap
+                    mapClicked={handleMapClick}
+                    markerPosition={selectedPosition}
+                  />
+                </div>
+              </>
+            )}
 
-                if (selected) {
-                  for (let c = 0; c < selected.length; c++) {
-                    filteredFiles.push(selected[c]);
+            <div className="input-block">
+              <label htmlFor="pictures">Fotos do pet</label>
+              <input
+                type="file"
+                id="pictures"
+                name="pictures[]"
+                multiple
+                accept="image/*"
+                onChange={(evt) => {
+                  const selected = evt.target.files;
+                  const filteredFiles: File[] = [];
+
+                  if (selected) {
+                    for (let c = 0; c < selected.length; c++) {
+                      filteredFiles.push(selected[c]);
+                    }
+
+                    setSelectedFiles(filteredFiles);
                   }
-
-                  setSelectedFiles(filteredFiles);
-                }
-              }}
-            />
+                }}
+              />
+            </div>
           </div>
           <div id="btn-submit-wrapper">
             <button type="submit">Salvar</button>
