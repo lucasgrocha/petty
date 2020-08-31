@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from 'react';
-
+import { LatLngTuple, LeafletMouseEvent } from 'leaflet';
+import { Map, TileLayer, Marker } from 'react-leaflet';
 import './styles.css';
 import petsService from '../../services/petsService';
 
@@ -11,6 +12,7 @@ const CreatePet: React.FC = () => {
   const [age, setAge] = useState<number>(1);
   // const [location, setLocation] = useState<string>();
   const [files, setSelectedFiles] = useState<File[]>([]);
+  const [selectedPosition, setSelectedPosition] = useState<number[]>([0, 0]);
 
   function handleSubmit(evt: FormEvent) {
     evt.preventDefault();
@@ -37,6 +39,12 @@ const CreatePet: React.FC = () => {
         alert('Registro salvo com sucesso');
       }
     });
+  }
+
+  const position: LatLngTuple = [-22.8920565, -47.2079804];
+
+  function handleMapClick(event: LeafletMouseEvent) {
+    setSelectedPosition([event.latlng.lat, event.latlng.lng]);
   }
 
   return (
@@ -113,16 +121,35 @@ const CreatePet: React.FC = () => {
           </div>
 
           {status === 'lost' && (
-            <div className="input-block fadeIn">
-              <label htmlFor="last_seen">Visto por último</label>
-              <textarea
-                rows={3}
-                id="last_seen"
-                required
-                value={last_seen}
-                onChange={(evt) => setLastSeen(evt.target.value)}
-              />
-            </div>
+            <>
+              <div className="input-block fadeIn">
+                <label htmlFor="last_seen">Visto por último</label>
+                <textarea
+                  rows={3}
+                  id="last_seen"
+                  required
+                  value={last_seen}
+                  onChange={(evt) => setLastSeen(evt.target.value)}
+                />
+              </div>
+
+              <div className="input-block">
+                <p>Marque o local de ultimo avistamento do pet</p>
+                <Map
+                  center={position}
+                  zoom={17}
+                  id="map"
+                  onClick={handleMapClick}
+                >
+                  <TileLayer
+                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+
+                  <Marker position={selectedPosition as LatLngTuple} />
+                </Map>
+              </div>
+            </>
           )}
 
           <div className="input-block">

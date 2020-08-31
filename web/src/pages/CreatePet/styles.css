@@ -5,7 +5,8 @@ form {
   border-radius: 0.5rem;
 }
 
-.input-block label {
+.input-block label,
+p {
   color: rgb(73, 73, 73);
 }
 
@@ -155,6 +156,12 @@ textarea:focus {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+#map {
+  height: 35rem;
+  width: 100%;
+  margin: 2rem 0;
 }
 
 @media screen and (max-width: 700px) {
