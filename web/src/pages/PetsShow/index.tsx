@@ -54,7 +54,7 @@ const PetsShow: React.FC = () => {
             <header>
               <h1>{petData.pet_name}</h1>
               <h4>
-                {petData.location} | {petData.age} anos
+                {petData.address} | {petData.age} anos
               </h4>
             </header>
           </div>
@@ -66,12 +66,12 @@ const PetsShow: React.FC = () => {
             <p>{petData.description}</p>
           </div>
 
-          {petData.last_seen && (
+          {petData.last_seen_coords && (
             <div className="pets-info-description">
               <p style={{ textAlign: 'left' }}>
                 <strong>Ultimo avistamento</strong>
               </p>
-              <p>{petData.last_seen}</p>
+              <p>{petData.last_seen_coords}</p>
             </div>
           )}
 

@@ -10,9 +10,9 @@ export interface Pet {
   pet_name: string;
   description: string;
   age: number;
-  location: string;
+  address: string;
   status: string;
-  last_seen: string | null;
+  last_seen_coords: string | null;
   contacts: {
     phone_number: string;
     email: string;
@@ -72,7 +72,7 @@ const PetCard: React.FC<Props> = ({ petData }) => {
 
           <div id="petcard-pet-location">
             <img src={locationPoint} alt={`${petData.pet_name} location`} />
-            <span>{petData.location}</span>
+            <span>{petData.address}</span>
           </div>
         </div>
       </div>

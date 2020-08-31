@@ -50,15 +50,17 @@ class Api::V1::PetsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def pet_params
-    params.require(:pet).permit(:owner_name,
-                                :last_seen_coords,
-                                :status,
-                                :pet_name,
-                                :description,
-                                :age,
-                                :address,
-                                pictures: [],
-                                contacts: %i[phone_number email])
+    params
+      .require(:pet)
+      .permit(:owner_name,
+              :status,
+              :pet_name,
+              :description,
+              :age,
+              :address,
+              pictures: [],
+              last_seen_coords: [],
+              contacts: %i[phone_number email])
   end
 
   def validate_status_param

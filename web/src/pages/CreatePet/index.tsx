@@ -18,7 +18,7 @@ const CreatePet: React.FC = () => {
 
   const ageRef = useRef<HTMLInputElement>(null);
   const descriptionRef = useRef<HTMLTextAreaElement>(null);
-  const lastSeenRef = useRef<HTMLTextAreaElement>(null);
+  const lastSeenCoordsRef = useRef<HTMLTextAreaElement>(null);
   const petNameRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -49,23 +49,32 @@ const CreatePet: React.FC = () => {
     const age = ageRef.current?.value;
     const pet_name = petNameRef.current?.value || '';
     const description = descriptionRef.current?.value || '';
-    const last_seen = lastSeenRef.current?.value;
+    const last_seen_coords = lastSeenCoordsRef.current?.value;
+    const address = `${selectedCity}-${selectedState}`;
 
     const data = new FormData();
 
     data.append('pet[status]', status);
     data.append('pet[pet_name]', pet_name);
+    data.append('pet[address]', address);
     data.append('pet[age]', String(age));
     data.append('pet[description]', description);
     data.append('pet[contacts][phone_number]', '+550112121311');
+
     if (files) {
       for (let file of files) {
         data.append('pet[pictures][]', file);
       }
     }
 
-    if (last_seen) {
-      data.append('pet[last_seen]', last_seen);
+    if (status === 'lost') {
+      for (const coord of selectedPosition) {
+        data.append('pet[last_seen_coords][]', String(coord));
+      }
+    }
+
+    if (last_seen_coords) {
+      data.append('pet[last_seen_coords]', last_seen_coords);
     }
 
     petsService.create(data).then((res) => {
