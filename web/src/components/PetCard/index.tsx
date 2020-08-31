@@ -26,6 +26,7 @@ interface Props {
 
 const PetCard: React.FC<Props> = ({ petData }) => {
   const [mouseOver, setMouseOver] = useState<boolean>();
+  const coverPicture = petData.pictures_url[0];
 
   return (
     <Link
@@ -45,7 +46,11 @@ const PetCard: React.FC<Props> = ({ petData }) => {
       <div id="petcard-info">
         <div id="petcard-pet-picture">
           <img
-            src={`http://192.168.15.11:3000/${petData.pictures_url[0]}`}
+            src={
+              coverPicture
+                ? `http://192.168.15.11:3000/${coverPicture}`
+                : 'https://bit.ly/2YPLnoi'
+            }
             alt={petData.pet_name}
           />
         </div>
