@@ -97,13 +97,13 @@ const CreatePet: React.FC = () => {
             <div className="input-block">
               <label htmlFor="pet_name">Nome do pet</label>
               <br />
-              <input type="text" id="pet_name" required ref={petNameRef} />
+              <input type="text" name="pet_name" required ref={petNameRef} />
             </div>
 
             <div className="input-block">
               <label htmlFor="age">Idade</label>
               <br />
-              <input type="number" id="age" min={0} required ref={ageRef} />
+              <input type="number" name="age" min={0} required ref={ageRef} />
             </div>
 
             <div className="input-block">
@@ -117,44 +117,47 @@ const CreatePet: React.FC = () => {
               />
             </div>
 
-            <div className="input-block">
-              <label htmlFor="description">Estado</label>
-              <br />
-              <select
-                onChange={(e) => setSelectedState(e.target.value)}
-                defaultValue={'DEFAULT'}
-              >
-                <option disabled hidden value={'DEFAULT'}>
-                  Escolha o estado
-                </option>
-                {states?.map((estado) => (
-                  <option value={estado} key={estado}>
-                    {estado}
+            <div id="pet-input-location">
+              <div className="input-block">
+                <label htmlFor="state">Estado</label>
+                <br />
+                <select
+                  onChange={(e) => setSelectedState(e.target.value)}
+                  defaultValue={'DEFAULT'}
+                  name="state"
+                >
+                  <option disabled hidden value={'DEFAULT'}>
+                    Escolha o estado
                   </option>
-                ))}
-              </select>
-            </div>
+                  {states?.map((estado) => (
+                    <option value={estado} key={estado}>
+                      {estado}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-            <div className="input-block">
-              <label htmlFor="description">Cidade</label>
-              <br />
-              <select
-                onChange={(e) => setSelectedCity(e.target.value)}
-                disabled={!selectedState}
-                value={selectedCity}
-                defaultValue={'DEFAULT'}
-              >
-                <option disabled hidden value={'DEFAULT'}>
-                  Escolha a cidade
-                </option>
-                {cities?.map((city) => (
-                  <option value={city} key={city}>
-                    {city}
+              <div>
+                <label htmlFor="city">Cidade</label>
+                <br />
+                <select
+                  onChange={(e) => setSelectedCity(e.target.value)}
+                  disabled={!selectedState}
+                  value={selectedCity}
+                  defaultValue={'DEFAULT'}
+                  name="city"
+                >
+                  <option disabled hidden value={'DEFAULT'}>
+                    Escolha a cidade
                   </option>
-                ))}
-              </select>
+                  {cities?.map((city) => (
+                    <option value={city} key={city}>
+                      {city}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
-
             <div className="input-block">
               <p>Selecione o tipo</p>
               <div className="radio-input">
@@ -200,7 +203,7 @@ const CreatePet: React.FC = () => {
             )}
 
             <div className="input-block">
-              <label htmlFor="pictures">Fotos do pet</label>
+              <label htmlFor="pictures[]">Fotos do pet</label>
               <input
                 type="file"
                 id="pictures"
