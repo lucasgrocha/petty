@@ -12,7 +12,7 @@ export interface Pet {
   age: number;
   address: string;
   status: string;
-  last_seen_coords: string | null;
+  last_seen_coords: number[] | null;
   contacts: {
     phone_number: string;
     email: string;

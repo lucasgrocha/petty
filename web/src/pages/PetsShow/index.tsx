@@ -6,6 +6,7 @@ import ImageGallery from 'react-image-gallery';
 import { Pet } from '../../components/PetCard';
 import petsService from '../../services/petsService';
 import { useParams, useNavigate } from 'react-router-dom';
+import LeafletMap from '../../components/LeafletMap';
 
 const PetsShow: React.FC = () => {
   const navigate = useNavigate();
@@ -71,7 +72,7 @@ const PetsShow: React.FC = () => {
               <p style={{ textAlign: 'left' }}>
                 <strong>Ultimo avistamento</strong>
               </p>
-              <p>{petData.last_seen_coords}</p>
+              <LeafletMap markerPosition={petData.last_seen_coords} />
             </div>
           )}
 

@@ -50,7 +50,7 @@ const CreatePet: React.FC = () => {
     const pet_name = petNameRef.current?.value || '';
     const description = descriptionRef.current?.value || '';
     const last_seen_coords = lastSeenCoordsRef.current?.value;
-    const address = `${selectedCity}-${selectedState}`;
+    const address = `${selectedCity}, ${selectedState}`;
 
     const data = new FormData();
 

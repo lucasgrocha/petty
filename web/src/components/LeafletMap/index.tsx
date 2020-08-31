@@ -6,7 +6,7 @@ import { Map, TileLayer, Marker } from 'react-leaflet';
 import './styles.css';
 
 interface Props {
-  mapClicked: (event: LeafletMouseEvent) => void;
+  mapClicked?: (event: LeafletMouseEvent) => void;
   markerPosition: number[];
 }
 
@@ -14,10 +14,16 @@ const LeafletMap: React.FC<Props> = (props) => {
   const [initialPosition, setInitialPosition] = useState<LatLngTuple>([0, 0]);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(({ coords }) => {
-      setInitialPosition([coords.latitude, coords.longitude]);
-    });
-  }, []);
+    if (new Set(props.markerPosition).size > 1) {
+      if (new Set(initialPosition).size === 1) {
+        setInitialPosition(props.markerPosition as LatLngTuple);
+      }
+    } else {
+      navigator.geolocation.getCurrentPosition(({ coords }) => {
+        setInitialPosition([coords.latitude, coords.longitude]);
+      });
+    }
+  }, [props.markerPosition, initialPosition]);
 
   console.log(props.markerPosition);
 
