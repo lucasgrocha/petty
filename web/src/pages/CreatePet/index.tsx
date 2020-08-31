@@ -1,8 +1,8 @@
 import React, { useState, FormEvent } from 'react';
-import { LatLngTuple, LeafletMouseEvent } from 'leaflet';
-import { Map, TileLayer, Marker } from 'react-leaflet';
+import { LeafletMouseEvent } from 'leaflet';
 import './styles.css';
 import petsService from '../../services/petsService';
+import LeafletMap from '../../components/LeafletMap';
 
 const CreatePet: React.FC = () => {
   const [status, setStatus] = useState<string>('adoption');
@@ -10,7 +10,6 @@ const CreatePet: React.FC = () => {
   const [description, setDescription] = useState<string>('Blablabla');
   const [last_seen, setLastSeen] = useState<string>();
   const [age, setAge] = useState<number>(1);
-  // const [location, setLocation] = useState<string>();
   const [files, setSelectedFiles] = useState<File[]>([]);
   const [selectedPosition, setSelectedPosition] = useState<number[]>([0, 0]);
 
@@ -40,8 +39,6 @@ const CreatePet: React.FC = () => {
       }
     });
   }
-
-  const position: LatLngTuple = [-22.8920565, -47.2079804];
 
   function handleMapClick(event: LeafletMouseEvent) {
     setSelectedPosition([event.latlng.lat, event.latlng.lng]);
@@ -135,19 +132,10 @@ const CreatePet: React.FC = () => {
 
               <div className="input-block">
                 <p>Marque o local de ultimo avistamento do pet</p>
-                <Map
-                  center={position}
-                  zoom={17}
-                  id="map"
-                  onClick={handleMapClick}
-                >
-                  <TileLayer
-                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-
-                  <Marker position={selectedPosition as LatLngTuple} />
-                </Map>
+                <LeafletMap
+                  mapClicked={handleMapClick}
+                  markerPosition={selectedPosition}
+                />
               </div>
             </>
           )}
