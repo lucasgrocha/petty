@@ -14,18 +14,14 @@ const LeafletMap: React.FC<Props> = (props) => {
   const [initialPosition, setInitialPosition] = useState<LatLngTuple>([0, 0]);
 
   useEffect(() => {
-    if (new Set(props.markerPosition).size > 1) {
-      if (new Set(initialPosition).size === 1) {
-        setInitialPosition(props.markerPosition as LatLngTuple);
-      }
+    if (!props.mapClicked && new Set(props.markerPosition).size > 1) {
+      setInitialPosition(props.markerPosition as LatLngTuple);
     } else {
       navigator.geolocation.getCurrentPosition(({ coords }) => {
         setInitialPosition([coords.latitude, coords.longitude]);
       });
     }
-  }, [props.markerPosition, initialPosition]);
-
-  console.log(props.markerPosition);
+  }, [props.markerPosition, props.mapClicked]);
 
   return (
     <Map
