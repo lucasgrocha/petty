@@ -3,11 +3,18 @@ import { LeafletMouseEvent } from 'leaflet';
 import './styles.css';
 import petsService from '../../services/petsService';
 import LeafletMap from '../../components/LeafletMap';
+import statesService from '../../services/ibgeApi/statesService';
+import citiesService from '../../services/ibgeApi/citiesService';
 
 const CreatePet: React.FC = () => {
   const [status, setStatus] = useState<string>('adoption');
   const [files, setSelectedFiles] = useState<File[]>([]);
   const [selectedPosition, setSelectedPosition] = useState<number[]>([0, 0]);
+
+  const [states, setStates] = useState<string[]>();
+  const [cities, setCities] = useState<string[]>();
+  const [selectedState, setSelectedState] = useState<string>();
+  const [selectedCity, setSelectedCity] = useState<string>();
 
   const ageRef = useRef<HTMLInputElement>(null);
   const descriptionRef = useRef<HTMLTextAreaElement>(null);
@@ -19,6 +26,22 @@ const CreatePet: React.FC = () => {
       ageRef.current.value = '1';
     }
   }, []);
+
+  useEffect(() => {
+    statesService.index().then((res) => {
+      const siglas = res.data.map((estado: { sigla: '' }) => estado.sigla);
+      setStates(siglas);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (selectedState) {
+      citiesService.index(selectedState).then((res) => {
+        const cities = res.data.map((city: { nome: '' }) => city.nome);
+        setCities(cities);
+      });
+    }
+  }, [selectedState]);
 
   function handleSubmit(evt: FormEvent) {
     evt.preventDefault();
@@ -79,6 +102,44 @@ const CreatePet: React.FC = () => {
           </div>
 
           <div className="input-block">
+            <label htmlFor="description">Estado</label>
+            <br />
+            <select
+              onChange={(e) => setSelectedState(e.target.value)}
+              defaultValue={'DEFAULT'}
+            >
+              <option disabled hidden value={'DEFAULT'}>
+                Escolha o estado
+              </option>
+              {states?.map((estado) => (
+                <option value={estado} key={estado}>
+                  {estado}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="input-block">
+            <label htmlFor="description">Cidade</label>
+            <br />
+            <select
+              onChange={(e) => setSelectedCity(e.target.value)}
+              disabled={!selectedState}
+              value={selectedCity}
+              defaultValue={'DEFAULT'}
+            >
+              <option disabled hidden value={'DEFAULT'}>
+                Escolha a cidade
+              </option>
+              {cities?.map((city) => (
+                <option value={city} key={city}>
+                  {city}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="input-block">
             <p>Selecione o tipo</p>
             <div className="radio-input">
               <label htmlFor="adoption">
@@ -113,11 +174,6 @@ const CreatePet: React.FC = () => {
           {status === 'lost' && (
             <>
               <div className="input-block fadeIn">
-                <label htmlFor="last_seen">Visto por último</label>
-                <textarea rows={3} id="last_seen" required ref={lastSeenRef} />
-              </div>
-
-              <div className="input-block">
                 <p>Marque o local de ultimo avistamento do pet</p>
                 <LeafletMap
                   mapClicked={handleMapClick}

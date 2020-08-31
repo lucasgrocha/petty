@@ -12,7 +12,8 @@ p {
 
 .input-block input,
 textarea,
-.input-block > .radio-input {
+.input-block > .radio-input,
+select {
   margin-top: 1.6rem;
 }
 
@@ -28,7 +29,8 @@ label {
 }
 
 .input-block input,
-textarea {
+textarea,
+select {
   padding: 1rem 1.5rem;
   outline: none;
   border-radius: 0.5rem;
@@ -40,7 +42,8 @@ textarea {
 .input-block textarea,
 input[type='text'],
 input[type='number'],
-input[type='file'] {
+input[type='file'],
+select {
   width: 100%;
   resize: vertical;
 }
