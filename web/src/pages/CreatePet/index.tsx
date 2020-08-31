@@ -8,7 +8,7 @@ import citiesService from '../../services/ibgeApi/citiesService';
 
 const CreatePet: React.FC = () => {
   const [status, setStatus] = useState<string>('adoption');
-  const [files, setSelectedFiles] = useState<File[]>([]);
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [selectedPosition, setSelectedPosition] = useState<number[]>([0, 0]);
 
   const [states, setStates] = useState<string[]>();
@@ -61,8 +61,8 @@ const CreatePet: React.FC = () => {
     data.append('pet[description]', description);
     data.append('pet[contacts][phone_number]', '+550112121311');
 
-    if (files) {
-      for (let file of files) {
+    if (selectedFiles) {
+      for (let file of selectedFiles) {
         data.append('pet[pictures][]', file);
       }
     }
