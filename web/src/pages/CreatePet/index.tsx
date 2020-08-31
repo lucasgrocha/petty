@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useRef, useEffect } from 'react';
 import { LeafletMouseEvent } from 'leaflet';
 import './styles.css';
 import petsService from '../../services/petsService';
@@ -6,15 +6,27 @@ import LeafletMap from '../../components/LeafletMap';
 
 const CreatePet: React.FC = () => {
   const [status, setStatus] = useState<string>('adoption');
-  const [pet_name, setPetName] = useState<string>('Jucinei');
-  const [description, setDescription] = useState<string>('Blablabla');
-  const [last_seen, setLastSeen] = useState<string>();
-  const [age, setAge] = useState<number>(1);
   const [files, setSelectedFiles] = useState<File[]>([]);
   const [selectedPosition, setSelectedPosition] = useState<number[]>([0, 0]);
 
+  const ageRef = useRef<HTMLInputElement>(null);
+  const descriptionRef = useRef<HTMLTextAreaElement>(null);
+  const lastSeenRef = useRef<HTMLTextAreaElement>(null);
+  const petNameRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (ageRef.current) {
+      ageRef.current.value = '1';
+    }
+  }, []);
+
   function handleSubmit(evt: FormEvent) {
     evt.preventDefault();
+
+    const age = ageRef.current?.value;
+    const pet_name = petNameRef.current?.value || '';
+    const description = descriptionRef.current?.value || '';
+    const last_seen = lastSeenRef.current?.value;
 
     const data = new FormData();
 
@@ -51,38 +63,19 @@ const CreatePet: React.FC = () => {
           <div className="input-block">
             <label htmlFor="pet_name">Nome do pet</label>
             <br />
-            <input
-              type="text"
-              id="pet_name"
-              required
-              value={pet_name}
-              onChange={(evt) => setPetName(evt.target.value)}
-            />
+            <input type="text" id="pet_name" required ref={petNameRef} />
           </div>
 
           <div className="input-block">
             <label htmlFor="age">Idade</label>
             <br />
-            <input
-              type="number"
-              id="age"
-              min={0}
-              required
-              value={age}
-              onChange={(evt) => setAge(Number(evt.target.value))}
-            />
+            <input type="number" id="age" min={0} required ref={ageRef} />
           </div>
 
           <div className="input-block">
             <label htmlFor="description">Descrição</label>
             <br />
-            <textarea
-              rows={3}
-              id="description"
-              required
-              value={description}
-              onChange={(evt) => setDescription(evt.target.value)}
-            />
+            <textarea rows={3} id="description" required ref={descriptionRef} />
           </div>
 
           <div className="input-block">
@@ -121,13 +114,7 @@ const CreatePet: React.FC = () => {
             <>
               <div className="input-block fadeIn">
                 <label htmlFor="last_seen">Visto por último</label>
-                <textarea
-                  rows={3}
-                  id="last_seen"
-                  required
-                  value={last_seen}
-                  onChange={(evt) => setLastSeen(evt.target.value)}
-                />
+                <textarea rows={3} id="last_seen" required ref={lastSeenRef} />
               </div>
 
               <div className="input-block">
