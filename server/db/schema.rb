@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 2020_08_25_142622) do
     t.string "pet_name"
     t.text "description"
     t.integer "age"
-    t.string "location"
+    t.string "address"
     t.integer "status"
-    t.string "last_seen"
+    t.json "last_seen_coords"
     t.bigint "contact_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

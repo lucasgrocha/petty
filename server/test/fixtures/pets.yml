@@ -4,14 +4,14 @@ one:
   owner_name: MyString
   pet_name: MyString
   description: MyText
-  age: 
-  location: MyString
+  age:
+  address: MyString
   contact: one
 
 two:
   owner_name: MyString
   pet_name: MyString
   description: MyText
-  age: 
-  location: MyString
+  age:
+  address: MyString
   contact: two

@@ -5,9 +5,9 @@ class CreatePets < ActiveRecord::Migration[6.0]
       t.string :pet_name
       t.text :description
       t.integer :age
-      t.string :location
+      t.string :address
       t.integer :status
-      t.string :last_seen
+      t.json :last_seen_coords
       t.references :contact, null: true, foreign_key: true
 
       t.timestamps
