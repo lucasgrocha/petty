@@ -94,16 +94,18 @@ const CreatePet: React.FC = () => {
         <div id="form-wrapper">
           <div id="pet-inputs">
             <h1 className="pet-inputs-title">Dados do pet</h1>
-            <div className="input-block">
-              <label htmlFor="pet_name">Nome do pet</label>
-              <br />
-              <input type="text" name="pet_name" required ref={petNameRef} />
-            </div>
+            <div className="pet-input-multiple input-block">
+              <div className="">
+                <label htmlFor="pet_name">Nome do pet</label>
+                <br />
+                <input type="text" name="pet_name" required ref={petNameRef} />
+              </div>
 
-            <div className="input-block">
-              <label htmlFor="age">Idade</label>
-              <br />
-              <input type="number" name="age" min={0} required ref={ageRef} />
+              <div className="">
+                <label htmlFor="age">Idade</label>
+                <br />
+                <input type="number" name="age" min={0} required ref={ageRef} />
+              </div>
             </div>
 
             <div className="input-block">
@@ -117,7 +119,7 @@ const CreatePet: React.FC = () => {
               />
             </div>
 
-            <div id="pet-input-location">
+            <div className="pet-input-multiple">
               <div className="input-block">
                 <label htmlFor="state">Estado</label>
                 <br />

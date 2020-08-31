@@ -72,7 +72,7 @@ textarea:focus {
 #btn-submit-wrapper button {
   border: 0;
   outline: 0;
-  background-color: yellowgreen;
+  background-color: rgb(51, 192, 51);
   color: white;
   cursor: pointer;
   border-radius: 0.5rem;
@@ -82,7 +82,7 @@ textarea:focus {
 }
 
 #btn-submit-wrapper button:hover {
-  background-color: rgb(154, 190, 50);
+  background-color: rgb(51, 170, 51);
 }
 
 .radio-input {
@@ -154,7 +154,7 @@ textarea:focus {
   margin-bottom: 2rem;
 }
 
-#pet-input-location {
+.pet-input-multiple {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -162,7 +162,7 @@ textarea:focus {
   margin: 2rem 0;
 }
 
-#pet-input-location > div {
+.pet-input-multiple > div {
   width: 49%;
 }
 
@@ -186,11 +186,11 @@ textarea:focus {
     font-size: 3rem;
   }
 
-  #pet-input-location {
+  .pet-input-multiple {
     flex-direction: column;
   }
 
-  #pet-input-location > div {
+  .pet-input-multiple > div {
     width: 100%;
   }
 }
