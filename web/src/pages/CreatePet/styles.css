@@ -17,7 +17,7 @@ select {
   margin-top: 1.6rem;
 }
 
-.input-block + .input-block {
+.input-block {
   margin-top: 2rem;
 }
 
@@ -167,7 +167,6 @@ select:focus {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 2rem 0;
 }
 
 .pet-input-multiple > div {
