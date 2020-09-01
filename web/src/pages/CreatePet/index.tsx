@@ -92,7 +92,13 @@ const CreatePet: React.FC = () => {
               <div className="">
                 <label htmlFor="pet_name">Nome do pet</label>
                 <br />
-                <input type="text" name="pet_name" required ref={petNameRef} />
+                <input
+                  type="text"
+                  name="pet_name"
+                  maxLength={10}
+                  required
+                  ref={petNameRef}
+                />
               </div>
 
               <div className="">
