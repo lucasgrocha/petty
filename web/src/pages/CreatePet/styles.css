@@ -48,9 +48,17 @@ select {
   resize: vertical;
 }
 
+.input-block input,
+textarea,
+select {
+  border-bottom: 4px solid transparent;
+  transition: border-bottom 0.3s;
+}
+
 .input-block input:focus,
-textarea:focus {
-  background-color: rgb(245, 245, 245);
+textarea:focus,
+select:focus {
+  border-bottom: 4px solid rgb(51, 170, 51);
 }
 
 #form-wrapper {
