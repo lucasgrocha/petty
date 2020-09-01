@@ -12,13 +12,20 @@ interface Props {
 
 const LeafletMap: React.FC<Props> = (props) => {
   const [initialPosition, setInitialPosition] = useState<LatLngTuple>([0, 0]);
+  const [initialMarkerPosition, setInitialMarkerPosition] = useState<number[]>([
+    0,
+    0,
+  ]);
 
   useEffect(() => {
     if (!props.mapClicked && new Set(props.markerPosition).size > 1) {
-      setInitialPosition(props.markerPosition as LatLngTuple);
+      const initialPosition = props.markerPosition;
+      setInitialPosition(initialPosition as LatLngTuple);
     } else {
       navigator.geolocation.getCurrentPosition(({ coords }) => {
-        setInitialPosition([coords.latitude, coords.longitude]);
+        const initialPosition = [coords.latitude, coords.longitude];
+        setInitialPosition(initialPosition as LatLngTuple);
+        setInitialMarkerPosition(initialPosition);
       });
     }
   }, [props.markerPosition, props.mapClicked]);
@@ -37,7 +44,11 @@ const LeafletMap: React.FC<Props> = (props) => {
       />
 
       <Marker
-        position={(props.markerPosition || initialPosition) as LatLngTuple}
+        position={
+          (new Set(props.markerPosition).size === 1
+            ? initialMarkerPosition
+            : props.markerPosition) as LatLngTuple
+        }
       />
     </Map>
   );
