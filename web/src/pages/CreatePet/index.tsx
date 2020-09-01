@@ -11,7 +11,7 @@ const CreatePet: React.FC = () => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [selectedPosition, setSelectedPosition] = useState<number[]>([0, 0]);
 
-  const [states, setStates] = useState<string[]>();
+  const [states, setStates] = useState<{ acronym: ''; name: '' }[]>();
   const [cities, setCities] = useState<string[]>();
   const [selectedState, setSelectedState] = useState<string>();
   const [selectedCity, setSelectedCity] = useState<string>();
@@ -28,8 +28,11 @@ const CreatePet: React.FC = () => {
 
   useEffect(() => {
     statesService.index().then((res) => {
-      const siglas = res.data.map((estado: { sigla: '' }) => estado.sigla);
-      setStates(siglas);
+      console.log(res.data);
+      const filteredStates = res.data.map((estado: { sigla: ''; nome: '' }) => {
+        return { name: estado.nome, acronym: estado.sigla };
+      });
+      setStates(filteredStates);
     });
   }, []);
 
@@ -45,10 +48,14 @@ const CreatePet: React.FC = () => {
   function handleSubmit(evt: FormEvent) {
     evt.preventDefault();
 
+    const selectedStateName = states?.filter(
+      (state) => state.acronym === selectedState
+    )[0].name;
+
     const age = ageRef.current?.value;
     const pet_name = petNameRef.current?.value || '';
     const description = descriptionRef.current?.value || '';
-    const address = `${selectedCity}, ${selectedState}`;
+    const address = `${selectedCity}, ${selectedStateName}`;
 
     const data = new FormData();
 
@@ -131,9 +138,9 @@ const CreatePet: React.FC = () => {
                   <option disabled hidden value={'DEFAULT'}>
                     Escolha o estado
                   </option>
-                  {states?.map((estado) => (
-                    <option value={estado} key={estado}>
-                      {estado}
+                  {states?.map((state) => (
+                    <option value={state.acronym} key={state.acronym}>
+                      {state.name}
                     </option>
                   ))}
                 </select>
