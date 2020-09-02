@@ -11,7 +11,7 @@ interface Props {
 }
 
 const LeafletMap: React.FC<Props> = (props) => {
-  const [initialPosition, setInitialPosition] = useState<LatLngTuple>([0, 0]);
+  const [initialPosition, setInitialPosition] = useState<number[]>([0, 0]);
   const [initialMarkerPosition, setInitialMarkerPosition] = useState<number[]>([
     0,
     0,
@@ -22,16 +22,29 @@ const LeafletMap: React.FC<Props> = (props) => {
       const initialPosition = props.markerPosition;
       setInitialPosition(initialPosition as LatLngTuple);
     } else {
-      navigator.geolocation.getCurrentPosition(({ coords }) => {
-        const initialPosition = [coords.latitude, coords.longitude];
-        setInitialPosition(initialPosition as LatLngTuple);
-        setInitialMarkerPosition(initialPosition);
-      });
+      navigator.geolocation.getCurrentPosition(
+        ({ coords }) => {
+          const initialPosition = [coords.latitude, coords.longitude];
+          setInitialPosition(initialPosition);
+          setInitialMarkerPosition(initialPosition);
+        },
+        () => {
+          const errorLocationCoords = [-22.907104, -47.06324]; // Campinas, SP coordinates
+
+          setInitialPosition(errorLocationCoords);
+          setInitialMarkerPosition(errorLocationCoords);
+        }
+      );
     }
   }, [props.markerPosition, props.mapClicked]);
 
   return (
-    <Map center={initialPosition} zoom={13} id="map" onClick={props.mapClicked}>
+    <Map
+      center={initialPosition as LatLngTuple}
+      zoom={13}
+      id="map"
+      onClick={props.mapClicked}
+    >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
