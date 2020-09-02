@@ -25,6 +25,10 @@
   background-color: white;
 }
 
+#pets-photo-gallery .image-gallery-image {
+  height: 36rem;
+}
+
 #pets-info-infos {
   width: 100%;
 }

@@ -5,17 +5,19 @@ form {
   border-radius: 0.5rem;
 }
 
-.input-block label {
+.input-block label,
+p {
   color: rgb(73, 73, 73);
 }
 
 .input-block input,
 textarea,
-.input-block > .radio-input {
+.input-block > .radio-input,
+select {
   margin-top: 1.6rem;
 }
 
-.input-block + .input-block {
+.input-block {
   margin-top: 2rem;
 }
 
@@ -27,26 +29,37 @@ label {
 }
 
 .input-block input,
-textarea {
+textarea,
+select {
   padding: 1rem 1.5rem;
   outline: none;
   border-radius: 0.5rem;
   border: none;
   background-color: rgb(240, 240, 240);
   transition: background-color 0.2s;
+  box-shadow: 0.1rem 0.1rem 0.6rem -0.2rem rgba(0, 0, 0, 0.75);
 }
 
 .input-block textarea,
 input[type='text'],
 input[type='number'],
-input[type='file'] {
+input[type='file'],
+select {
   width: 100%;
   resize: vertical;
 }
 
+.input-block input,
+textarea,
+select {
+  border-bottom: 4px solid transparent;
+  transition: border-bottom 0.3s;
+}
+
 .input-block input:focus,
-textarea:focus {
-  background-color: rgb(245, 245, 245);
+textarea:focus,
+select:focus {
+  border-bottom: 4px solid rgb(51, 170, 51);
 }
 
 #form-wrapper {
@@ -68,7 +81,7 @@ textarea:focus {
 #btn-submit-wrapper button {
   border: 0;
   outline: 0;
-  background-color: yellowgreen;
+  background-color: rgb(51, 192, 51);
   color: white;
   cursor: pointer;
   border-radius: 0.5rem;
@@ -78,7 +91,7 @@ textarea:focus {
 }
 
 #btn-submit-wrapper button:hover {
-  background-color: rgb(154, 190, 50);
+  background-color: rgb(51, 170, 51);
 }
 
 .radio-input {
@@ -140,4 +153,52 @@ textarea:focus {
   height: 0.6rem;
   border-radius: 50%;
   background: white;
+}
+
+.fadeIn {
+  animation: fadeIn 0.8s both;
+}
+
+#pet-inputs .pet-inputs-title {
+  margin-bottom: 2rem;
+}
+
+.pet-input-multiple {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pet-input-multiple > div {
+  width: 49%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-7rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  form {
+    padding: 0.5rem 2rem;
+  }
+
+  #pet-inputs .pet-inputs-title {
+    font-size: 3rem;
+  }
+
+  .pet-input-multiple {
+    flex-direction: column;
+  }
+
+  .pet-input-multiple > div {
+    width: 100%;
+  }
 }

@@ -6,5 +6,5 @@ json.age @pet.age
 json.address @pet.address
 json.contacts @pet.contacts
 json.status Pet.statuses[@pet.status]
-json.last_seen_coords @pet.last_seen_coords
-json.pictures_url @pet.pictures.map { |pic| pic.url }
+json.last_seen_coords @pet.last_seen_coords if @pet.status == 'lost'
+json.pictures_url @pet.pictures.map { |pic| pic.url } if @pet.pictures.size > 0

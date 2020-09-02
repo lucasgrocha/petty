@@ -9,6 +9,7 @@ const petsService = {
       },
     }),
   show: (id: string) => api.get(`pets/${id}`),
+  create: (data: FormData) => api.post('/pets', data),
 };
 
 export default petsService;

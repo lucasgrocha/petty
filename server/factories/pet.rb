@@ -4,7 +4,7 @@ FactoryBot.define do
     pet_name { FFaker::NameBR.first_name }
     description { FFaker::Lorem.paragraph }
     age { (1..20).to_a.sample }
-    location { FFaker::Address.street_address }
+    address { FFaker::Address.street_address }
     contact { FactoryBot.create(:contact) }
     status { rand(0..1) }
 
@@ -20,7 +20,7 @@ FactoryBot.define do
 
       pet.pictures = files
 
-      pet.last_seen = FFaker::Lorem.paragraph if pet.status == 'lost'
+      pet.last_seen_coords = [FFaker::Geolocation.lat, FFaker::Geolocation.lng] if pet.status == 'lost'
     end
   end
 end
