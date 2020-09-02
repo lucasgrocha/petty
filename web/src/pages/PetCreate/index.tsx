@@ -6,7 +6,7 @@ import LeafletMap from '../../components/LeafletMap';
 import statesService from '../../services/ibgeApi/statesService';
 import citiesService from '../../services/ibgeApi/citiesService';
 
-const CreatePet: React.FC = () => {
+const PetCreate: React.FC = () => {
   const [status, setStatus] = useState<string>('adoption');
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [selectedPosition, setSelectedPosition] = useState<number[]>([0, 0]);
@@ -243,4 +243,4 @@ const CreatePet: React.FC = () => {
   );
 };
 
-export default CreatePet;
+export default PetCreate;
