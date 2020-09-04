@@ -5,6 +5,7 @@ import PetsIndex from './pages/PetsIndex';
 import Navbar from './components/Navbar';
 import PetsShow from './pages/PetsShow';
 import PetCreate from './pages/PetCreate';
+import Landing from './pages/Landing';
 
 function AppRoutes() {
   return (
@@ -12,6 +13,7 @@ function AppRoutes() {
       <Navbar />
 
       <Routes>
+        <Route path="/" element={<Landing />} />
         <Route path="/pets" element={<PetsIndex />} />
         <Route path="/pets/:id" element={<PetsShow />} />
         <Route path="/pets/create" element={<PetCreate />} />
