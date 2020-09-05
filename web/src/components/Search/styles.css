@@ -5,9 +5,9 @@
 
 #dropdown {
   position: absolute;
-  right: 5rem;
+  right: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   margin-top: 0.2rem;
   border: 0.1rem solid rgb(160, 160, 160);
 }
@@ -21,23 +21,31 @@
 }
 
 #search-box input {
-  width: 90%;
   outline: none;
   border: none;
   padding: 1rem;
   font: 400 1.6rem Archivo;
 }
 
-#search-box button {
-  width: 10%;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  color: whitesmoke;
-  background-color: rgb(128, 125, 255);
-  min-width: 5rem;
+#search-input {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-#search-box button svg {
+#search-input input {
+  width: 100%;
+}
+
+#search-input #search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0.5rem;
+}
+
+#search-input #search-icon svg {
   width: 3rem;
+  flex-shrink: 1;
+  color: rgb(104, 104, 104);
 }

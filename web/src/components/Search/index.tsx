@@ -17,6 +17,7 @@ interface SearchedPet {
 
 const Search: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [focused, setFocused] = useState(false);
 
   const [searchedPets, setSearchedPets] = useState<SearchedPet[]>([]);
 
@@ -42,18 +43,26 @@ const Search: React.FC = () => {
   return (
     <div id="search">
       <form id="search-box" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Pesquise por localidade ou idade"
-          ref={inputRef}
-          required
-        />
-        <button type="submit">
-          <SearchIcon />
-        </button>
+        <div id="search-input">
+          <div id="search-icon">
+            <SearchIcon />
+          </div>
+          <input
+            type="text"
+            placeholder="Pesquise por localidade ou idade"
+            ref={inputRef}
+            required
+            onFocus={() => setFocused(true)}
+            onBlur={() => {
+              setTimeout(() => {
+                setFocused(false);
+              }, 90);
+            }}
+          />
+        </div>
       </form>
 
-      {searchedPets.length > 0 && (
+      {searchedPets.length > 0 && focused && (
         <div id="dropdown">
           {searchedPets.map((pet, index) => (
             <DropdownItem
@@ -62,6 +71,7 @@ const Search: React.FC = () => {
               age={pet.age}
               address={pet.address}
               pictureURL={pet.picture_url}
+              id={pet.id}
             />
           ))}
         </div>

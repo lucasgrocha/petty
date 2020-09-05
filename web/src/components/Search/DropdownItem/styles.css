@@ -3,6 +3,12 @@
   padding: 0.9rem 1rem;
   display: flex;
   align-items: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(231, 231, 231);
 }
 
 .dropdown-item + .dropdown-item {
@@ -24,4 +30,6 @@
 
 .dropdown-pet-info span {
   font: 400 1.4rem Archivo;
+  text-decoration: none;
+  color: black;
 }
