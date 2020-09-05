@@ -3,7 +3,7 @@ class Api::V1::SearchController < ApplicationController
 
   def index
     @pets = Pet.where("#{@search_type} = ?", @search_term)
-    render json: @pets
+    puts @pets.size
   end
 
   private
