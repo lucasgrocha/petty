@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :pets
       resources :contacts
       resources :landing, only: [:index]
+      resources :search, only: [:index]
     end
   end
 end
