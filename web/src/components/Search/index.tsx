@@ -9,7 +9,7 @@ const Search: React.FC = () => {
   return (
     <div id="search">
       <form id="search-box">
-        <input type="text" />
+        <input type="text" placeholder="Pesquise por localidade ou idade" />
         <button type="submit">
           <SearchIcon />
         </button>
