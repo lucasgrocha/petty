@@ -1,9 +1,10 @@
 #search-box {
   display: flex;
-  width: 40%;
+  width: 100%;
   border-radius: 1rem;
   overflow: hidden;
   padding: 0;
+  grid-area: search-box;
 }
 
 #search-box input {
@@ -21,4 +22,9 @@
   cursor: pointer;
   color: whitesmoke;
   background-color: rgb(128, 125, 255);
+  min-width: 5rem;
+}
+
+#search-box button svg {
+  width: 3rem;
 }
