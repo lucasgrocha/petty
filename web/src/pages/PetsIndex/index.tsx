@@ -41,7 +41,7 @@ const PetsIndex: React.FC = () => {
 
   return (
     <div className="container">
-      <div id="adopt-wrapper" style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {pets.map((pet) => (
           <PetCard key={pet.id} petData={pet} />
         ))}
