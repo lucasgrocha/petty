@@ -1,0 +1,27 @@
+.dropdown-item {
+  background-color: rgb(241, 241, 241);
+  padding: 0.9rem 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-item + .dropdown-item {
+  border-top: 1px solid rgb(151, 151, 151);
+}
+
+.dropdown-item img {
+  height: 5rem;
+}
+
+.dropdown-pet-info {
+  margin-left: 0.7rem;
+}
+
+.dropdown-pet-info h4 {
+  text-align: left;
+  line-height: 0.3rem;
+}
+
+.dropdown-pet-info span {
+  font: 400 1.4rem Archivo;
+}

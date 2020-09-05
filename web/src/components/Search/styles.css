@@ -1,6 +1,19 @@
+#search {
+  width: 100%;
+  position: relative;
+}
+
+#dropdown {
+  position: absolute;
+  right: 5rem;
+  left: 0;
+  z-index: 1;
+  margin-top: 0.2rem;
+  border: 0.1rem solid rgb(160, 160, 160);
+}
+
 #search-box {
   display: flex;
-  width: 100%;
   border-radius: 1rem;
   overflow: hidden;
   padding: 0;
