@@ -1,0 +1,24 @@
+#search-box {
+  display: flex;
+  width: 40%;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 0;
+}
+
+#search-box input {
+  width: 90%;
+  outline: none;
+  border: none;
+  padding: 1rem;
+  font: 400 1.6rem Archivo;
+}
+
+#search-box button {
+  width: 10%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: whitesmoke;
+  background-color: rgb(128, 125, 255);
+}

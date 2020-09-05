@@ -7,6 +7,7 @@ import HamburgerMenu from '../HamburgerMenu';
 import Backdrop from '../Ui/Backdrop';
 import AsideMenuItems from '../AsideMenuItems';
 import { Link } from 'react-router-dom';
+import Search from '../Search';
 
 interface MenuItem {
   icon: ReactNode;
@@ -68,6 +69,7 @@ const Navbar: React.FC = () => {
             <img src={logo} alt="Petty logo" className="navbar-logo" />
             <span id="title">Petty</span>
           </Link>
+          <Search />
           <div id="navbar-menu">
             <HamburgerMenu
               clicked={!!hamburgerMenuVisible}
