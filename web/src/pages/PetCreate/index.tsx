@@ -91,7 +91,7 @@ const PetCreate: React.FC = () => {
 
   return (
     <div className="container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} id="pet-create-form">
         <div id="form-wrapper">
           <div id="pet-inputs">
             <h1 className="pet-inputs-title">Dados do pet</h1>
