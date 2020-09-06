@@ -101,5 +101,6 @@
   to {
     width: 70%;
     opacity: 0;
+    visibility: hidden;
   }
 }
