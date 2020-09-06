@@ -24,7 +24,7 @@
   z-index: 2;
   margin-top: 4.5rem;
   border: 0.1rem solid rgb(160, 160, 160);
-  height: 50vh;
+  max-height: 50vh;
   overflow: auto;
 }
 
