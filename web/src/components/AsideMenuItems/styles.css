@@ -3,7 +3,7 @@
   width: 75vw;
   position: fixed;
   background-color: rgb(236, 236, 236);
-  top: 0;
+  top: 5.73rem;
   left: var(--total-hide);
   z-index: 6;
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
@@ -21,6 +21,10 @@
 
 #aside-menu-items header img {
   margin-right: 0.5rem;
+}
+
+.open ~ .container {
+  overflow: hidden;
 }
 
 .open {
