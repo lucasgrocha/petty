@@ -15,7 +15,7 @@
 }
 
 #search-box:not(:focus-within) + #dropdown {
-  display: none;
+  animation: hideDropdown 0.3s both;
 }
 
 #dropdown {
@@ -24,6 +24,12 @@
   z-index: 2;
   margin-top: 4.5rem;
   border: 0.1rem solid rgb(160, 160, 160);
+  height: 50vh;
+  overflow: auto;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(212, 212, 212);
 }
 
 #search-box {
@@ -85,5 +91,15 @@
   }
   to {
     width: 100%;
+  }
+}
+
+@keyframes hideDropdown {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 70%;
+    opacity: 0;
   }
 }

@@ -67,7 +67,7 @@ const Search: React.FC = () => {
         </div>
       </form>
 
-      {searchedPets.length > 0 && focused && (
+      {searchedPets.length > 0 && (
         <div id="dropdown">
           {searchedPets.map((pet, index) => (
             <DropdownItem
