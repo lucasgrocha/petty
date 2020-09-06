@@ -5,6 +5,7 @@ import './styles.css';
 import { SearchAlt2 as SearchIcon } from '@styled-icons/boxicons-regular';
 import DropdownItem from './DropdownItem';
 import searchService from '../../services/searchService';
+import spinner from '../../assets/images/icons/spinner.gif';
 
 interface SearchedPet {
   id: number;
@@ -18,6 +19,7 @@ interface SearchedPet {
 const Search: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [focused, setFocused] = useState(false);
+  const [searching, setSearching] = useState(false);
 
   const [searchedPets, setSearchedPets] = useState<SearchedPet[]>([]);
 
@@ -35,8 +37,11 @@ const Search: React.FC = () => {
       return;
     }
 
+    setSearching(true);
+
     searchService.search(searchTerm, searchType).then((res) => {
       setSearchedPets(res.data);
+      setSearching(false);
     });
   }
 
@@ -45,7 +50,7 @@ const Search: React.FC = () => {
       <form id="search-box" onSubmit={handleSubmit}>
         <div id="search-input">
           <div id="search-icon">
-            <SearchIcon />
+            {searching ? <img src={spinner} alt="spinner" /> : <SearchIcon />}
           </div>
           <input
             type="text"

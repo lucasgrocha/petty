@@ -50,3 +50,7 @@
   flex-shrink: 1;
   color: rgb(104, 104, 104);
 }
+
+#search-input #search-icon img {
+  width: 3rem;
+}
