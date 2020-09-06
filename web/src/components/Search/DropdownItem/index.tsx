@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 interface Props {
   petName: string;
@@ -12,11 +13,7 @@ interface Props {
 
 const DropdownItem: React.FC<Props> = (props) => {
   return (
-    <a
-      href={`/pets/${props.id}`}
-      className="dropdown-item"
-      onClick={() => console.log(123)}
-    >
+    <Link to={`/pets/${props.id}`} className="dropdown-item">
       <img src={`http://192.168.15.11:3000${props.pictureURL}`} alt="Pet" />
       <div className="dropdown-pet-info">
         <h4>{props.petName}</h4>
@@ -24,7 +21,7 @@ const DropdownItem: React.FC<Props> = (props) => {
           {props.age} {props.age > 1 ? 'anos' : 'ano'} | {props.address}
         </span>
       </div>
-    </a>
+    </Link>
   );
 };
 

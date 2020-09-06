@@ -18,7 +18,6 @@ interface SearchedPet {
 
 const Search: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [focused, setFocused] = useState(false);
   const [searching, setSearching] = useState(false);
 
   const [searchedPets, setSearchedPets] = useState<SearchedPet[]>([]);
@@ -57,12 +56,6 @@ const Search: React.FC = () => {
             placeholder="Pesquise por localidade ou idade"
             ref={inputRef}
             required
-            onFocus={() => setFocused(true)}
-            onBlur={() => {
-              setTimeout(() => {
-                setFocused(false);
-              }, 90);
-            }}
           />
         </div>
       </form>
