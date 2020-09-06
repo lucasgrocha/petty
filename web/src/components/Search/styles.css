@@ -1,14 +1,28 @@
 #search {
   width: 100%;
   position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#search-box:focus-within {
+  width: 100%;
+  animation: showInput 0.3s both;
+}
+
+#search-box:not(:focus-within) {
+  animation: hideInput 0.3s both;
+}
+
+#search-box:not(:focus-within) + #dropdown {
+  display: none;
 }
 
 #dropdown {
   position: absolute;
-  right: 0;
-  left: 0;
+  width: 100%;
   z-index: 2;
-  margin-top: 0.2rem;
+  margin-top: 4.5rem;
   border: 0.1rem solid rgb(160, 160, 160);
 }
 
@@ -19,6 +33,7 @@
   padding: 0;
   grid-area: search-box;
   background-color: white;
+  width: 70%;
 }
 
 #search-box input {
@@ -53,4 +68,22 @@
 
 #search-input #search-icon img {
   width: 3rem;
+}
+
+@keyframes hideInput {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 70%;
+  }
+}
+
+@keyframes showInput {
+  from {
+    width: 70%;
+  }
+  to {
+    width: 100%;
+  }
 }
