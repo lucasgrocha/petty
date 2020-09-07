@@ -5,17 +5,12 @@
   justify-content: flex-end;
 }
 
-#search-box:focus-within {
-  width: 100%;
-  animation: showInput 0.3s both;
-}
-
-#search-box:not(:focus-within) {
-  animation: hideInput 0.3s both;
-}
-
 #search-box:not(:focus-within) + #dropdown {
   animation: hideDropdown 0.3s both;
+}
+
+#search-box:focus-within + #dropdown {
+  animation: showDropdown 0.3s both;
 }
 
 #dropdown {
@@ -39,7 +34,7 @@
   padding: 0;
   grid-area: search-box;
   background-color: white;
-  width: 70%;
+  width: 100%;
 }
 
 #search-box input {
@@ -76,31 +71,24 @@
   width: 3rem;
 }
 
-@keyframes hideInput {
+@keyframes showDropdown {
   from {
-    width: 100%;
+    opacity: 0;
+    transform: translateY(10vh);
+    visibility: hidden;
   }
   to {
-    width: 70%;
-  }
-}
-
-@keyframes showInput {
-  from {
-    width: 70%;
-  }
-  to {
-    width: 100%;
+    transform: translateY(0);
   }
 }
 
 @keyframes hideDropdown {
   from {
-    width: 100%;
+    transform: translateY(0);
   }
   to {
-    width: 70%;
     opacity: 0;
+    transform: translateY(10vh);
     visibility: hidden;
   }
 }
