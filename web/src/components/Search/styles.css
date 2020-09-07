@@ -6,11 +6,11 @@
 }
 
 #search-box:not(:focus-within) + #dropdown {
-  animation: hideDropdown 0.3s both;
+  animation: hideDropdown 0.4s both linear;
 }
 
 #search-box:focus-within + #dropdown {
-  animation: showDropdown 0.3s both;
+  animation: showDropdown 0.4s both;
 }
 
 #dropdown {
