@@ -33,6 +33,9 @@ const Search: React.FC = () => {
     const searchType = ageSearch ? 'age' : 'address';
 
     if (searchTerm.length === 0) {
+      if (searchedPets.length > 0) {
+        setSearchedPets([]);
+      }
       return;
     }
 
@@ -55,7 +58,6 @@ const Search: React.FC = () => {
             type="text"
             placeholder="Pesquise por localidade ou idade"
             ref={inputRef}
-            required
           />
         </div>
       </form>
