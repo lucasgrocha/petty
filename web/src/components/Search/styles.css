@@ -13,14 +13,34 @@
   animation: showDropdown 0.4s both;
 }
 
+#search-box:focus-within {
+  transition: 0.2s;
+}
+
+#search-box:focus-within {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#dropdown::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+#dropdown::-webkit-scrollbar-thumb {
+  background-color: rgb(35, 181, 40);
+}
+
 #dropdown {
   position: absolute;
   width: 100%;
   z-index: 2;
-  margin-top: 4.5rem;
-  border: 0.1rem solid rgb(160, 160, 160);
+  margin-top: 4.1rem;
   max-height: 50vh;
   overflow: auto;
+  box-shadow: 0.3rem 0.3rem 0.4rem -0.3rem rgba(0, 0, 0, 0.65);
+  border-top: 0.1rem solid rgb(223, 223, 223);
+  border-bottom-left-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -29,11 +49,11 @@
 
 #search-box {
   display: flex;
-  border-radius: 1rem;
+  border-radius: 0.2rem;
   overflow: hidden;
   padding: 0;
   grid-area: search-box;
-  background-color: white;
+  background-color: rgb(243, 243, 243);
   width: 100%;
 }
 
@@ -42,6 +62,7 @@
   border: none;
   padding: 1rem;
   font: 400 1.6rem Archivo;
+  background-color: rgb(243, 243, 243);
 }
 
 #search-input {
