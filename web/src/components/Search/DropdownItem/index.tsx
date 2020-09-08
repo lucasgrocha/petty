@@ -17,7 +17,9 @@ const DropdownItem: React.FC<Props> = (props) => {
       className="dropdown-item"
       onClick={() => props.clicked(`/pets/${props.id}`)}
     >
-      <img src={`http://192.168.15.11:3000${props.pictureURL}`} alt="Pet" />
+      <div className="pet-picture">
+        <img src={`http://192.168.15.11:3000${props.pictureURL}`} alt="Pet" />
+      </div>
       <div className="dropdown-pet-info">
         <h4>{props.petName}</h4>
         <span>

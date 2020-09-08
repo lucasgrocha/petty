@@ -25,6 +25,12 @@
   height: 5rem;
 }
 
+.pet-picture {
+  width: 7.6rem;
+  display: flex;
+  justify-content: center;
+}
+
 .dropdown-pet-info {
   margin-left: 0.7rem;
 }
