@@ -1,8 +1,7 @@
 #search {
-  width: 100%;
+  width: 90%;
   position: relative;
-  display: flex;
-  justify-content: flex-end;
+  margin: auto;
 }
 
 #search-box:not(:focus-within) + #dropdown {
@@ -117,5 +116,11 @@
     opacity: 0;
     transform: translateX(10vh);
     visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #search {
+    width: 100%;
   }
 }

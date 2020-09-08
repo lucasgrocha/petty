@@ -8,8 +8,8 @@
 
 #navbar-content {
   display: grid;
-  grid-template-areas: 'logo menu-items search-box';
-  grid-template-columns: 0.01fr 1fr 1fr;
+  grid-template-areas: 'logo search-box menu-items';
+  grid-template-columns: 0.01fr 1fr 0.5fr;
 }
 
 #navbar-site-info {
