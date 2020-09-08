@@ -4,11 +4,16 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  transition: background-color 0.2s;
+  transition: background-color 0.1s;
 }
 
 .dropdown-item:hover {
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(35, 181, 40);
+}
+
+.dropdown-item:hover .dropdown-pet-info span,
+.dropdown-item:hover .dropdown-pet-info h4 {
+  color: white;
 }
 
 .dropdown-item + .dropdown-item {
@@ -25,11 +30,14 @@
 
 .dropdown-pet-info h4 {
   text-align: left;
-  line-height: 0.3rem;
+  line-height: 0.4rem;
+  color: black;
+  transition: color 0.1s;
 }
 
 .dropdown-pet-info span {
   font: 400 1.4rem Archivo;
   text-decoration: none;
   color: black;
+  transition: color 0.1s;
 }
