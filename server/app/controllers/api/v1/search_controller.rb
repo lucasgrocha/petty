@@ -9,7 +9,7 @@ class Api::V1::SearchController < ApplicationController
                     :address,
                     :pictures,
                     :status)
-            .where("#{address_query? ? "lower(#{@search_type}) LIKE " : "#{@search_type} = "} ?",
+            .where("#{address_query? ? 'lower(address) LIKE ' : 'age = '} ?",
                    (address_query? ? "%#{@search_term}%" : @search_term).to_s)
   end
 
