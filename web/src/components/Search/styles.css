@@ -80,21 +80,21 @@
 @keyframes showDropdown {
   from {
     opacity: 0;
-    transform: translateY(10vh);
+    transform: translateX(10vh);
     visibility: hidden;
   }
   to {
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
 @keyframes hideDropdown {
   from {
-    transform: translateY(0);
+    transform: translateX(0);
   }
   to {
     opacity: 0;
-    transform: translateY(10vh);
+    transform: translateX(10vh);
     visibility: hidden;
   }
 }

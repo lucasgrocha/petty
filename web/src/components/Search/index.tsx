@@ -6,6 +6,7 @@ import { SearchAlt2 as SearchIcon } from '@styled-icons/boxicons-regular';
 import DropdownItem from './DropdownItem';
 import searchService from '../../services/searchService';
 import spinner from '../../assets/images/icons/spinner.gif';
+import { useNavigate } from 'react-router-dom';
 
 interface SearchedPet {
   id: number;
@@ -19,6 +20,7 @@ interface SearchedPet {
 const Search: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [searching, setSearching] = useState(false);
+  const navigate = useNavigate();
 
   const [searchedPets, setSearchedPets] = useState<SearchedPet[]>([]);
 
@@ -47,6 +49,10 @@ const Search: React.FC = () => {
     });
   }
 
+  const navigateToItem = (url: string) => {
+    navigate(url);
+  };
+
   return (
     <div id="search">
       <form id="search-box" onSubmit={handleSubmit}>
@@ -66,6 +72,7 @@ const Search: React.FC = () => {
         <div id="dropdown">
           {searchedPets.map((pet, index) => (
             <DropdownItem
+              clicked={navigateToItem}
               key={index}
               petName={pet.pet_name}
               age={pet.age}
