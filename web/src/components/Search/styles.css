@@ -33,7 +33,6 @@
   position: absolute;
   width: 100%;
   z-index: 2;
-  margin-top: 4.1rem;
   max-height: 50vh;
   overflow: auto;
   box-shadow: 0.3rem 0.3rem 0.4rem -0.3rem rgba(0, 0, 0, 0.65);
@@ -62,6 +61,7 @@
   padding: 1rem;
   font: 400 1.6rem Archivo;
   background-color: rgb(243, 243, 243);
+  color: rgb(66, 66, 66);
 }
 
 #search-input {
