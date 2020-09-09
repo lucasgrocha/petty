@@ -48,7 +48,6 @@
 .dropdown-pet-info span {
   font: 400 1.6rem Archivo;
   text-decoration: none;
-  display: block;
   color: black;
   transition: color 0.1s;
   overflow: hidden;
