@@ -77,6 +77,7 @@ const Search: React.FC = () => {
               petName={pet.pet_name}
               age={pet.age}
               address={pet.address}
+              status={pet.status}
               pictureURL={pet.picture_url}
               id={pet.id}
             />
