@@ -5,18 +5,15 @@
 }
 
 #search-box:not(:focus-within) + #dropdown {
-  animation: hideDropdown 0.4s both linear;
+  animation: hideDropdown 0.09s both linear;
 }
 
 #search-box:focus-within + #dropdown {
-  animation: showDropdown 0.4s both;
+  animation: showDropdown 0.09s both;
 }
 
 #search-box:focus-within {
-  transition: 0.2s;
-}
-
-#search-box:focus-within {
+  transition: 0.09s;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -37,8 +34,8 @@
   overflow: auto;
   box-shadow: 0.3rem 0.3rem 0.4rem -0.3rem rgba(0, 0, 0, 0.65);
   border-top: 0.1rem solid rgb(223, 223, 223);
-  border-bottom-left-radius: 0.2rem;
-  border-bottom-right-radius: 0.2rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -47,7 +44,7 @@
 
 #search-box {
   display: flex;
-  border-radius: 0.2rem;
+  border-radius: 0.5rem;
   overflow: hidden;
   padding: 0;
   grid-area: search-box;
@@ -84,7 +81,7 @@
 #search-input #search-icon svg {
   flex-shrink: 1;
   color: rgb(104, 104, 104);
-  transition: 0.2s;
+  transition: 0.09s;
 }
 
 #search-box:focus-within #search-input #search-icon svg {
@@ -99,21 +96,13 @@ svg {
 @keyframes showDropdown {
   from {
     opacity: 0;
-    transform: translateX(10vh);
     visibility: hidden;
-  }
-  to {
-    transform: translateX(0);
   }
 }
 
 @keyframes hideDropdown {
-  from {
-    transform: translateX(0);
-  }
   to {
     opacity: 0;
-    transform: translateX(10vh);
     visibility: hidden;
   }
 }
