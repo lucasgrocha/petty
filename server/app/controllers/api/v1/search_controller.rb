@@ -1,26 +1,16 @@
 class Api::V1::SearchController < ApplicationController
-  before_action :get_params
-
   def index
-    @pets = Pet
-            .select(:id,
-                    :age,
+    @pets = SearchPets.new(Pet
+            .select(:id, :age,
                     :pet_name,
                     :address,
                     :pictures,
-                    :status)
-            .where("#{address_query? ? 'lower(address) LIKE ' : 'age = '} ?",
-                   (address_query? ? "%#{@search_term}%" : @search_term).to_s)
+                    :status)).call(search_params)
   end
 
   private
 
-  def get_params
-    @search_term = params[:search_term].downcase
-    @search_type = params[:search_type]
-  end
-
-  def address_query?
-    @search_type == 'address'
+  def search_params
+    params.permit(:search_term, :search_type, :format)
   end
 end
