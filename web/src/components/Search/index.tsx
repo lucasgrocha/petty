@@ -21,6 +21,7 @@ const Search: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [searching, setSearching] = useState(false);
   const navigate = useNavigate();
+  const lastSearchedTerm = useRef('');
 
   const [searchedPets, setSearchedPets] = useState<SearchedPet[]>([]);
 
@@ -41,6 +42,11 @@ const Search: React.FC = () => {
       return;
     }
 
+    if (lastSearchedTerm.current === searchTerm) {
+      return;
+    }
+
+    lastSearchedTerm.current = searchTerm;
     setSearching(true);
 
     searchService.search(searchTerm, searchType).then((res) => {
