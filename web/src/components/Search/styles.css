@@ -79,11 +79,9 @@
   align-items: center;
   justify-content: center;
   padding-left: 0.8rem;
-  padding-top: 0.4rem;
 }
 
 #search-input #search-icon svg {
-  width: 3rem;
   flex-shrink: 1;
   color: rgb(104, 104, 104);
   transition: 0.2s;
@@ -93,8 +91,9 @@
   color: rgb(45, 167, 45);
 }
 
-#search-input #search-icon img {
-  width: 3rem;
+#search-input #search-icon img,
+svg {
+  width: 2rem;
 }
 
 @keyframes showDropdown {
