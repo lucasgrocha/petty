@@ -2,19 +2,21 @@
   width: 100%;
   background-color: rgb(51, 192, 51);
   padding: 1rem;
-  position: absolute;
+  position: fixed;
+  z-index: 5;
 }
 
 #navbar-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas: 'logo search-box menu-items';
+  grid-template-columns: 0.01fr 1fr 0.5fr;
 }
 
 #navbar-site-info {
   display: flex;
   align-items: center;
-  justify-content: center;
+  grid-area: logo;
+  justify-content: flex-start;
   text-decoration: none;
 }
 
@@ -26,6 +28,13 @@
   font: 400 2.5rem Archivo;
   color: whitesmoke;
   margin-left: 1rem;
+}
+
+#navbar-menu {
+  grid-area: menu-items;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #navbar-menu ul {
@@ -44,6 +53,7 @@
   margin-left: 0;
   font: 600 1.6rem Archivo;
   color: white;
+  white-space: nowrap;
 }
 
 #navbar-menu-items ul li a {
@@ -87,8 +97,27 @@
   color: rgb(51, 192, 51);
 }
 
+@media screen and (max-width: 1039px) {
+  #navbar-menu {
+    justify-content: flex-start;
+  }
+}
+
 @media screen and (max-width: 700px) {
   #navbar-menu-items {
     display: none;
+  }
+
+  #navbar-content {
+    grid-template-areas: 'menu-items search-box';
+    grid-template-columns: 15% 85%;
+  }
+
+  #navbar-site-info {
+    display: none;
+  }
+
+  #navbar-menu {
+    justify-content: flex-start;
   }
 }

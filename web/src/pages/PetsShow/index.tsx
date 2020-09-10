@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import './styles.css';
 
@@ -13,20 +13,28 @@ const PetsShow: React.FC = () => {
   const { id } = useParams();
   const [petData, setPetData] = useState<Pet>(window.history.state.usr);
 
-  useEffect(() => {
-    if (petData === undefined) {
-      petsService
-        .show(id)
-        .then((res) => {
-          setPetData(res.data);
-        })
-        .catch(() => {
-          navigate('/adopt');
-        });
-    }
-  }, [id, petData, navigate]);
+  const loadPets = useCallback(() => {
+    petsService
+      .show(id)
+      .then((res) => {
+        setPetData(res.data);
+      })
+      .catch(() => {
+        navigate('/adopt');
+      });
+  }, [id, navigate]);
 
-  if (petData === undefined) {
+  useEffect(() => {
+    if (!petData) {
+      loadPets();
+    }
+  }, [id, petData, loadPets]);
+
+  useEffect(() => {
+    loadPets();
+  }, [id, loadPets]);
+
+  if (!petData) {
     return null;
   }
 

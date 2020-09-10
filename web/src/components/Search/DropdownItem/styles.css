@@ -1,0 +1,62 @@
+.dropdown-item {
+  background-color: rgb(248, 248, 248);
+  padding: 0.9rem 1rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color 0.1s;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(35, 181, 40);
+}
+
+.dropdown-item:hover .dropdown-pet-info span,
+.dropdown-item:hover .dropdown-pet-info h3 {
+  color: white;
+}
+
+.dropdown-item + .dropdown-item {
+  border-top: 1px solid rgb(228, 228, 228);
+}
+
+.dropdown-item img {
+  height: 5rem;
+}
+
+.pet-picture {
+  width: 7.6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-pet-info {
+  margin-left: 0.7rem;
+  height: 5rem;
+  position: relative;
+}
+
+.dropdown-pet-info h3 {
+  text-align: left;
+  line-height: 1rem;
+  color: black;
+  transition: color 0.1s;
+  margin-bottom: 0.6rem;
+}
+
+.dropdown-pet-info span {
+  font: 400 1.6rem Archivo;
+  text-decoration: none;
+  color: black;
+  transition: color 0.1s;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+#status-info {
+  font-weight: bolder;
+  font-size: 1.2rem;
+}
