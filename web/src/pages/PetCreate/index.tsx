@@ -22,7 +22,7 @@ const PetCreate: React.FC = () => {
 
   useEffect(() => {
     if (ageRef.current) {
-      ageRef.current.value = '1';
+      ageRef.current.value = '';
     }
   }, []);
 
@@ -104,6 +104,7 @@ const PetCreate: React.FC = () => {
                   name="pet_name"
                   maxLength={10}
                   required
+                  placeholder="Digite o nome do pet"
                   ref={petNameRef}
                 />
               </div>
@@ -111,7 +112,15 @@ const PetCreate: React.FC = () => {
               <div className="input-block">
                 <label htmlFor="age">Idade</label>
                 <br />
-                <input type="number" name="age" min={0} required ref={ageRef} />
+                <input
+                  type="number"
+                  name="age"
+                  min={0}
+                  max={25}
+                  placeholder="Digite a idade do pet"
+                  required
+                  ref={ageRef}
+                />
               </div>
             </div>
 
@@ -121,8 +130,10 @@ const PetCreate: React.FC = () => {
               <textarea
                 rows={3}
                 id="description"
+                placeholder="Escreva uma descrição sobre o pet ;)"
                 required
                 ref={descriptionRef}
+                maxLength={600}
               />
             </div>
 
@@ -151,7 +162,7 @@ const PetCreate: React.FC = () => {
                 <br />
                 <select
                   onChange={(e) => setSelectedCity(e.target.value)}
-                  disabled={!selectedState}
+                  disabled={!selectedState && cities !== null}
                   value={selectedCity}
                   defaultValue={'DEFAULT'}
                   name="city"
